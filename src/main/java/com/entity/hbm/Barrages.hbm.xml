@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Barrages" table="Barrages" schema="dbo" catalog="Barrage" dynamic-insert="true" dynamic-update="true">
+        <id name="barrageId">
+            <column name="barrageId" sql-type="char(10)" length="10"/>
+            <generator class="com.utils.IDGenerator">
+                <param name="classname">com.entity.Barrages</param>
+                <param name="pk">barrageId</param>
+                <param name="sign">bg</param>
+                <param name="idLength">8</param>
+            </generator>
+        </id>
+        <property name="barrageCreateTime" type="timestamp">
+            <column name="barrageCreateTime"/>
+        </property>
+        <property name="videoTimePrint" type="float">
+            <column name="videoTimePrint" not-null="true"/>
+        </property>
+        <property name="barrageSpeed">
+            <column name="barrageSpeed" sql-type="int" not-null="true"/>
+        </property>
+        <property name="barrageContent">
+            <column name="barrageContent" sql-type="nvarchar(200)" length="200" not-null="true"/>
+        </property>
+        <property name="barrageColor">
+            <column name="barrageColor" sql-type="varchar(30)" length="30" not-null="true"/>
+        </property>
+        <property name="barrageFontSize">
+            <column name="barrageFontSize" sql-type="int" not-null="true"/>
+        </property>
+
+        <many-to-one name="barr_user" class="com.entity.Users" column="userId"></many-to-one>
+
+        <many-to-one name="barrage_video" class="com.entity.Videos" column="videoId"></many-to-one>
+    </class>
+</hibernate-mapping>

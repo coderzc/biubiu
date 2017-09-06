@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com</groupId>
+  <artifactId>biubiu</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>biubiu Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+    <org.apache.tomcat>8.5.15</org.apache.tomcat>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-servlet-api</artifactId>
+      <version>${org.apache.tomcat}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jsp-api</artifactId>
+      <version>${org.apache.tomcat}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.websocket</groupId>
+      <artifactId>javax.websocket-api</artifactId>
+      <version>1.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet.jsp.jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>4.3.8.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-core</artifactId>
+      <version>2.3.16.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-json-plugin</artifactId>
+      <version>2.3.24</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>1.8.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.6</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.sf.ezmorph</groupId>
+      <artifactId>ezmorph</artifactId>
+      <version>1.0.6</version>
+    </dependency>
+
+    <dependency>
+    <groupId>net.sf.json-lib</groupId>
+    <artifactId>json-lib</artifactId>
+    <version>2.4</version>
+    <classifier>jdk15</classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <finalName>biubiu</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

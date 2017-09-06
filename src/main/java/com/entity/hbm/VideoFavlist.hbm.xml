@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.VideoFavlist" table="VideoFavlist" schema="dbo" catalog="Barrage">
+        <composite-id name="favId" class="com.entity.VideoFavlistPK">
+            <key-property name="userId">
+                <column name="userId" sql-type="varchar(50)" length="50"/>
+            </key-property>
+            <key-property name="videoId">
+                <column name="videoId" sql-type="char(10)" length="10"/>
+            </key-property>
+        </composite-id>
+        <property name="favTime">
+            <column name="favTime" sql-type="datetime" not-null="true"/>
+        </property>
+
+        <many-to-one name="fav_user" class="com.entity.Users" column="userId" insert="false" update="false"></many-to-one>
+        <many-to-one name="fav_video" class="com.entity.Videos" column="videoId" insert="false" update="false"></many-to-one>
+    </class>
+</hibernate-mapping>

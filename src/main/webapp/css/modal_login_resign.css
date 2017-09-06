@@ -1,0 +1,93 @@
+@-webkit-keyframes mod {
+    from {
+        transform: perspective(700px) rotateY(-90deg);
+    }
+    to {
+        transform: perspective(700px) rotateY(0deg);
+    }
+}
+
+@-webkit-keyframes umod {
+    from {
+        transform: perspective(900px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(900px) rotateY(90deg);
+    }
+}
+
+body.modal-open {
+
+    overflow-y: auto !important;
+
+    padding-right: 0 !important;
+}
+
+
+.modal {
+    top: 10%;
+}
+
+.modal-open .modal{
+    overflow-y: hidden;
+}
+
+.modal-dialog{
+    margin-top: 50px;
+}
+
+.modal-backdrop.in { /*阴影区域*/
+    opacity: 0.0;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 1);
+    width: 60%;
+    margin: 0 auto;
+}
+input[type="checkbox"] {
+    -webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    background: #fff url(../img/check.png);
+    height: 22px;
+    vertical-align: middle;
+    width: 22px;
+}
+
+input[type="checkbox"]:checked {
+    background-position: -48px 0;
+}
+
+input[type="checkbox"]:focus,
+input[type="checkbox"]:hover {
+    background-position: -24px 0;
+    outline: none;
+}
+
+input[type="checkbox"]:checked {
+    background-position: -48px 0;
+}
+
+input[type="checkbox"][disabled] {
+    background-position: -72px 0;
+}
+
+input[type="checkbox"][disabled]:checked {
+    background-position: -96px 0;
+}
+
+.holder {
+    width: 80px;
+    height: 25px;
+    background-color: #ff5c00;
+    position: absolute;
+    color: white;
+    text-align: center;
+    line-height: 26px;
+    z-index: 100;
+    display: none;
+    border-radius: 3px;
+}

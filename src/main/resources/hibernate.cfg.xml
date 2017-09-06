@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://127.0.0.1:3306/Barrage</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="connection.username"></property>
+        <property name="connection.password"></property>
+
+        <!--*如果使用的是本地事务（jdbc事务）-->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+
+        <property name="show_sql">false</property>
+        <property name="format_sql">false</property>
+        <property name="hbm2ddl.auto">update</property>
+
+
+        <mapping resource="com/entity/hbm/Barrages.hbm.xml"/>
+
+        <mapping resource="com/entity/hbm/Users.hbm.xml"/>
+
+        <mapping resource="com/entity/hbm/VideoFavlist.hbm.xml"/>
+
+        <mapping resource="com/entity/hbm/VideoLike.hbm.xml"/>
+
+        <mapping resource="com/entity/hbm/Videos.hbm.xml"/>
+
+
+    </session-factory>
+</hibernate-configuration>

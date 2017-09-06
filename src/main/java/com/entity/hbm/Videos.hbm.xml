@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Videos" table="Videos" schema="dbo" catalog="Barrage" dynamic-insert="true"
+           dynamic-update="true">
+        <id name="videoId">
+            <column name="videoId" sql-type="char(10)" length="10"/>
+            <generator class="com.utils.IDGenerator">
+                <param name="classname">com.entity.Videos</param>
+                <param name="pk">videoId</param>
+                <param name="sign">av</param>
+                <param name="idLength">8</param>
+            </generator>
+        </id>
+        <property name="videoTitle">
+            <column name="videoTitle" sql-type="nvarchar(200)" length="200" not-null="true"/>
+        </property>
+        <property name="videoPath">
+            <column name="videoPath" sql-type="nvarchar(300)" length="300" not-null="true"/>
+        </property>
+        <property name="videoCoverPath">
+            <column name="videoCoverPath" sql-type="nvarchar(300)" length="300"/>
+        </property>
+        <property name="videoWatchCount">
+            <column name="videoWatchCount" sql-type="int"/>
+        </property>
+        <property name="videoType">
+            <column name="videoType" sql-type="nvarchar(10)" length="10"/>
+        </property>
+        <property name="isDiy">
+            <column name="isDIY" sql-type="nchar(5)" length="5"/>
+        </property>
+        <property name="videoUploadTime" type="timestamp">
+            <column name="videoUploadTime"/>
+        </property>
+
+
+        <!--视频所有者-->
+        <many-to-one name="up_user" class="com.entity.Users" column="userId" lazy="false"></many-to-one>
+
+        <!--收藏该视频列表-->
+        <set name="video_favSet" table="VideoFavlist" inverse="true">
+            <key column="videoId"></key>
+            <one-to-many class="com.entity.VideoFavlist"></one-to-many>
+        </set>
+
+        <!--给该视频点赞列表-->
+        <set name="video_likeSet" table="videolike">
+            <key column="videoId"></key>
+            <one-to-many class="com.entity.VideoLike"></one-to-many>
+        </set>
+
+        <!--该视频的弹幕集合-->
+        <set name="video_barrageSet" table="Barrages" inverse="true" cascade="save-update">
+            <key column="videoId"></key>
+            <one-to-many class="com.entity.Barrages"></one-to-many>
+        </set>
+
+    </class>
+</hibernate-mapping>
