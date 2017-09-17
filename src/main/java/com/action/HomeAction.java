@@ -6,7 +6,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by zc on 2016/12/24.
@@ -125,6 +124,7 @@ public class HomeAction extends ActionSupport implements ServiceSupport {
 
     @Override
     public String execute() throws Exception {
+        System.out.println("fvfcvdeucvwevcwevcvkyweuvcuwe你好");
 
         PageModel<Videos> pageModel = new PageModel<>(1, 8);
 

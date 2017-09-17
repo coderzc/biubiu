@@ -51,7 +51,7 @@ public class IDGenerator implements Configurable, IdentifierGenerator {
 
         String random_pk = null;
 
-        Session session = HibernateUtils.getSession();//打开session
+        Session session = HibernateUtils.getCurrentSession();//打开session
 
 
         do {

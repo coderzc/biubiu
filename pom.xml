@@ -11,7 +11,7 @@
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-    <org.apache.tomcat>8.5.15</org.apache.tomcat>
+      <org.apache.tomcat>8.5.20</org.apache.tomcat>
   </properties>
   <dependencies>
     <dependency>
@@ -27,22 +27,21 @@
     </dependency>
 
     <dependency>
-      <groupId>javax.websocket</groupId>
-      <artifactId>javax.websocket-api</artifactId>
-      <version>1.1</version>
-      <scope>provided</scope>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-websocket</artifactId>
+        <version>${org.apache.tomcat}</version>
     </dependency>
 
     <dependency>
-      <groupId>javax.servlet.jsp.jstl</groupId>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-websocket-api</artifactId>
+        <version>${org.apache.tomcat}</version>
+    </dependency>
+
+      <dependency>
+          <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>4.3.8.Final</version>
     </dependency>
 
     <dependency>
@@ -51,53 +50,35 @@
       <version>2.3.16.3</version>
     </dependency>
 
-    <dependency>
+      <dependency>
+          <groupId>net.sf.json-lib</groupId>
+          <artifactId>json-lib</artifactId>
+          <version>2.4</version>
+          <classifier>jdk15</classifier>
+      </dependency>
+
+      <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-json-plugin</artifactId>
       <version>2.3.24</version>
     </dependency>
 
     <dependency>
-      <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId>
-      <version>3.2.1</version>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>4.3.8.Final</version>
     </dependency>
 
     <dependency>
-      <groupId>commons-beanutils</groupId>
-      <artifactId>commons-beanutils</artifactId>
-      <version>1.8.3</version>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.1.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.sf.ezmorph</groupId>
-      <artifactId>ezmorph</artifactId>
-      <version>1.0.6</version>
-    </dependency>
-
-    <dependency>
-    <groupId>net.sf.json-lib</groupId>
-    <artifactId>json-lib</artifactId>
-    <version>2.4</version>
-    <classifier>jdk15</classifier>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-proxool</artifactId>
+        <version>4.3.8.Final</version>
     </dependency>
 
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.38</version>
+        <version>5.1.42</version>
     </dependency>
 
   </dependencies>

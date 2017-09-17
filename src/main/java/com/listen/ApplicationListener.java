@@ -31,6 +31,12 @@ public class ApplicationListener implements ServletContextListener,
          (the Web application) is undeployed or 
          Application Server shuts down.
       */
+//        try{
+//            System.out.println("---------------------------------------------------------------------------------");
+//            DriverManager.deregisterDriver(DriverManager.getDrivers().nextElement());
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
     }
 
     // -------------------------------------------------------

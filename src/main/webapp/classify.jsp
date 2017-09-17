@@ -14,8 +14,8 @@
     <link href="css/res_soso.css" rel="stylesheet">
     <style>
 
-        body{
-            font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
+        body {
+            font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
         }
 
         .body_head_img {
@@ -29,12 +29,12 @@
 
         }
 
-        #classify_info h1{
+        #classify_info h1 {
             display: block;
             margin: 0;
             padding: 0;
             list-style-type: none;
-            font-size: 24px!important;
+            font-size: 24px !important;
             line-height: 24px;
             font-weight: normal;
             position: relative;
@@ -43,7 +43,7 @@
             margin-left: 5px;
         }
 
-        #classify_info{
+        #classify_info {
             top: 5px;
             position: relative;
             width: 80%;
@@ -115,23 +115,19 @@
 
     page_ajax(1);//加载第一页
 
-//    $(".search_nav.navbar-form").hide();
+    //    $(".search_nav.navbar-form").hide();
 
-    if(param!=null&&param.length>0){
+    if (param != null && param.length > 0) {
         //加载参数中英文转换json
         $.getJSON("param.json", function (data) {
 
 
-
-
             $("#classify_info h1").text(data['' + param + ''][0]);
 
-            $(".body_head_img").css({"background-position":data['' + param + ''][1]+"px "+data['' + param + ''][2]+"px"});
+            $(".body_head_img").css({"background-position": data['' + param + ''][1] + "px " + data['' + param + ''][2] + "px"});
 
         });
     }
-
-
 
 
 </script>

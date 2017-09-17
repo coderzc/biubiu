@@ -4,51 +4,51 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.entity.Users" table="Users" schema="dbo" catalog="Barrage" dynamic-insert="true"
+    <class name="com.entity.Users" table="user" dynamic-insert="true"
            dynamic-update="true">
         <id name="userId">
-            <column name="userId" sql-type="varchar(50)" length="50" not-null="true"/>
+            <column name="user_id" sql-type="varchar(50)" length="50" not-null="true"/>
         </id>
         <property name="userName">
-            <column name="userName" sql-type="nvarchar(30)" length="30" not-null="true"/>
+            <column name="user_name" sql-type="nvarchar(30)" length="30" not-null="true"/>
         </property>
         <property name="userPassword">
-            <column name="userPassword" sql-type="nvarchar(20)" length="20" not-null="true"/>
+            <column name="user_password" sql-type="nvarchar(20)" length="20" not-null="true"/>
         </property>
         <property name="userEmail">
-            <column name="userEmail" sql-type="varchar(100)" length="100"/>
+            <column name="user_email" sql-type="varchar(100)" length="100"/>
         </property>
         <property name="userGender">
-            <column name="userGender" sql-type="nvarchar(5)" length="5"/>
+            <column name="user_gender" sql-type="nvarchar(5)" length="5"/>
         </property>
         <property name="userBirthday" type="date">
-            <column name="userBirthday"/>
+            <column name="user_birthday"/>
         </property>
         <property name="userPicPath">
-            <column name="userPicPath" sql-type="varchar(100)" length="100"/>
+            <column name="avatar" sql-type="varchar(100)" length="100"/>
         </property>
 
         <!--视频上传列表-->
-        <set name="uploadSet" table="Videos" inverse="true" order-by="videoUploadTime desc">
-            <key column="userId"></key> <!--cascade 级联保存更新-->
+        <set name="uploadSet" table="video" inverse="true" order-by="videoUploadTime desc">
+            <key column="user_id"></key> <!--cascade 级联保存更新-->
             <one-to-many class="com.entity.Videos"></one-to-many>
         </set>
 
         <!--该用户的弹幕集合-->
-        <set name="user_barrageSet" table="Barrages" inverse="true" cascade="save-update">
-            <key column="userId"></key>
+        <set name="user_barrageSet" table="barrage" inverse="true" cascade="save-update">
+            <key column="user_id"></key>
             <one-to-many class="com.entity.Barrages"></one-to-many>
         </set>
 
         <!--用户收藏列表-->
-        <set name="user_favSet" table="VideoFavlist">
-            <key column="userId"></key>
+        <set name="user_favSet" table="video_favlist">
+            <key column="user_id"></key>
             <one-to-many class="com.entity.VideoFavlist"></one-to-many>
         </set>
 
         <!--用户点赞列表-->
-        <set name="user_likeSet" table="VideoLike">
-            <key column="userId"></key>
+        <set name="user_likeSet" table="video_like">
+            <key column="user_id"></key>
             <one-to-many class="com.entity.VideoLike"></one-to-many>
         </set>
 

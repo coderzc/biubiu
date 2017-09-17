@@ -4,44 +4,70 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-  <session-config>
-    <session-timeout>1000</session-timeout>
-  </session-config>
+    <!--<session-config>-->
+    <!--<session-timeout>1000</session-timeout>-->
+    <!--</session-config>-->
 
-  <!--<filter>-->
-  <!--<filter-name>osivfilter</filter-name>-->
-  <!--<filter-class>com.Interceptor.OSIVFilter</filter-class>-->
-  <!--</filter>-->
-  <!--<filter-mapping>-->
-  <!--<filter-name>osivfilter</filter-name>-->
-  <!--<url-pattern>/*</url-pattern>-->
-  <!--</filter-mapping>-->
+    <!--<filter>-->
+    <!--<filter-name>osivfilter</filter-name>-->
+    <!--<filter-class>com.Interceptor.OSIVFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+    <!--<filter-name>osivfilter</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
 
-  <filter>
-    <filter-name>struts2</filter-name>
-    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>utf-8</param-value>
-    </init-param>
-  </filter>
-  <filter-mapping>
-    <filter-name>struts2</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-  <!--<error-page>-->
-  <!--<error-code>500</error-code>-->
-  <!--<location>/error.jsp</location>-->
-  <!--</error-page>-->
+    <!--连接池-->
+    <servlet>
+        <servlet-name>ServletConfigurator</servlet-name>
+        <servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+        <init-param>
+            <param-name>xmlFile</param-name>
+            <param-value>WEB-INF/classes/proxool.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-  <error-page>
-    <error-code>404</error-code>
-    <location>/404.jsp</location>
-  </error-page>
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>
+    </servlet>
 
-  <welcome-file-list>
-    <welcome-file>/homepage.jsp</welcome-file>
-  </welcome-file-list>
+    <servlet-mapping>
+        <servlet-name>ServletConfigurator</servlet-name>
+        <url-pattern>/ServletConfigurator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/Admin</url-pattern>
+    </servlet-mapping>
+
+
+    <!--<error-page>-->
+    <!--<error-code>500</error-code>-->
+    <!--<location>/error.jsp</location>-->
+    <!--</error-page>-->
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+
+    <welcome-file-list>
+        <welcome-file>/homepage.jsp</welcome-file>
+    </welcome-file-list>
 
 </web-app>

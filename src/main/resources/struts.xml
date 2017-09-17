@@ -7,7 +7,7 @@
 <struts>
     <constant name="struts.action.extension" value=",html,jsp,action,tingting"></constant>
     <constant name="struts.action.excludePattern"
-              value="/danmusocket,/myrtc,/res/.*?,/js/.*?,/css/.*?,/video/css/.*?,/video/js/.*?"/>
+              value="/danmusocket,/myrtc,/res/.*?,/js/.*?,/css/.*?,/video/css/.*?,/video/js/.*?,/Admin,/ServletConfigurator"/>
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
     <constant name="struts.serve.static.browserCache" value="false"></constant><!--缓存关闭-->
     <constant name="struts.multipart.maxSize" value="900000000"/><!--文件上传最大限制-->

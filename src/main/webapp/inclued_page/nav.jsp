@@ -44,7 +44,7 @@
            </span>
 
          <span class="item">
-                <a class="head_item head_iteam_live" href="/YoungTeam/video/live.action">直 播</a>
+                <a class="head_item head_iteam_live" href="/video/live.action">直 播</a>
          </span>
 
         </div>

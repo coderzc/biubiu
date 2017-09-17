@@ -41,9 +41,9 @@ public class HibernateUtils {
     /**
      * 获取session对象
      */
-    public static Session getSession() {
-        return sessionFactory.openSession();
-    }
+//    public static Session getSession() {
+//        return sessionFactory.openSession();
+//    }
 
 
     /**

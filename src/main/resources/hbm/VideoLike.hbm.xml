@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.VideoLike" table="video_like">
+
+        <composite-id name="likeId" class="com.entity.VideoLikePK">
+            <key-property name="userId">
+                <column name="user_id" sql-type="varchar(50)" length="50"/>
+            </key-property>
+            <key-property name="videoId">
+                <column name="video_id" sql-type="char(10)" length="10"/>
+            </key-property>
+        </composite-id>
+
+        <many-to-one name="like_user" class="com.entity.Users" column="user_id" insert="false"
+                     update="false"></many-to-one>
+        <many-to-one name="like_video" class="com.entity.Videos" column="video_id" insert="false"
+                     update="false"></many-to-one>
+
+
+    </class>
+</hibernate-mapping>
