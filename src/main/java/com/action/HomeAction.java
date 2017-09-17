@@ -124,7 +124,6 @@ public class HomeAction extends ActionSupport implements ServiceSupport {
 
     @Override
     public String execute() throws Exception {
-        System.out.println("fvfcvdeucvwevcwevcvkyweuvcuwe你好");
 
         PageModel<Videos> pageModel = new PageModel<>(1, 8);
 
