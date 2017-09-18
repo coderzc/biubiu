@@ -6,9 +6,9 @@ package com.utils;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.boot.registry.internal.StandardServiceRegistryImpl;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 /**
  * @author zc
@@ -21,10 +21,16 @@ public class HibernateUtils {
 
     static {
         try {
-            Configuration configiguration = new Configuration().configure();
-            ServiceRegistryBuilder builder = new ServiceRegistryBuilder().applySettings(configiguration.getProperties());
-            ServiceRegistry registry = builder.buildServiceRegistry();
-            sessionFactory = configiguration.buildSessionFactory(registry);
+//            Configuration configiguration = new Configuration().configure();
+//            ServiceRegistryBuilder builder = new ServiceRegistryBuilder().
+//                    applySettings(configiguration.getProperties());
+//            ServiceRegistry registry = builder.buildServiceRegistry();
+//            sessionFactory = configiguration.buildSessionFactory(registry);
+            Configuration configuration = new Configuration().configure();
+            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
+                    .applySettings(configuration.getProperties());
+            StandardServiceRegistryImpl registry = (StandardServiceRegistryImpl) builder.build();
+            sessionFactory = configuration.buildSessionFactory(registry);
         } catch (Throwable e) {
             e.printStackTrace();
         }

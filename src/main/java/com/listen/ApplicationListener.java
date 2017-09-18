@@ -1,6 +1,9 @@
-package com.listen; /**
+package com.listen;
+/**
  * Created by zc on 2016/12/7.
  */
+
+import com.utils.HibernateUtils;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
+import java.sql.DriverManager;
 
 @WebListener()
 public class ApplicationListener implements ServletContextListener,
@@ -31,10 +35,14 @@ public class ApplicationListener implements ServletContextListener,
          (the Web application) is undeployed or 
          Application Server shuts down.
       */
-//        try{
-//            System.out.println("---------------------------------------------------------------------------------");
+
+//        try {
+//            System.out.println("-----------------------");
+//            HibernateUtils.getCurrentSession().close();
+//            System.out.println(DriverManager.getDrivers().nextElement().getMajorVersion());
 //            DriverManager.deregisterDriver(DriverManager.getDrivers().nextElement());
-//        }catch(Exception e){
+//
+//        }catch (Exception e){
 //            e.printStackTrace();
 //        }
     }
