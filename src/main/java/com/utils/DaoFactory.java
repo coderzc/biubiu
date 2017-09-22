@@ -14,7 +14,7 @@ public class DaoFactory {
 
 	private static Properties p=new Properties();
 	//缓存集合
-	private static Map<String,Object> cach=new HashMap<String,Object>();
+	private static Map<String, Object> cach = new HashMap<String, Object>();
 	
 	static{
 		InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("dao.properties");
@@ -25,8 +25,8 @@ public class DaoFactory {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	public static Object getInstacne(String daoName){
 		Object obj=cach.get(daoName);
 		if(obj==null){
@@ -34,13 +34,7 @@ public class DaoFactory {
 			if(clazz!=null&&!clazz.equals("")){
 				try {
 					obj=Class.forName(clazz).newInstance();
-				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
+				} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -63,17 +57,13 @@ public class DaoFactory {
 			if(null != className && !"".equals(className)){
 				try {
 					//加载指定名字的字节码到虚拟机内存中
-					Class clazz = Class.forName(className);
+					Class<Object> clazz = (Class<Object>) Class.forName(className);
 					//通过反射机制调用无参数的那个构造方法来创建出一个对象
 					obj = (T)daoClass.cast(clazz.newInstance());
 					
 					//往缓存池中存放
 					cach.put(daoName, obj);
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (InstantiationException e) {
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}
