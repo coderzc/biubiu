@@ -25,3 +25,4 @@ target/
 .DS_Store
 Thumbs.db
 /src/main/resources/proxool.xml
+/src/main/resources/biubiu.properties
