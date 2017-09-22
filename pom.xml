@@ -11,7 +11,7 @@
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-  <org.apache.tomcat>8.5.20</org.apache.tomcat>
+    <org.apache.tomcat>8.5.15</org.apache.tomcat>
   <org.hibernate>4.3.8.Final</org.hibernate>
   </properties>
   <dependencies>
@@ -19,24 +19,28 @@
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-servlet-api</artifactId>
       <version>${org.apache.tomcat}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-jsp-api</artifactId>
       <version>${org.apache.tomcat}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
         <groupId>org.apache.tomcat</groupId>
         <artifactId>tomcat-websocket</artifactId>
         <version>${org.apache.tomcat}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
         <groupId>org.apache.tomcat</groupId>
         <artifactId>tomcat-websocket-api</artifactId>
         <version>${org.apache.tomcat}</version>
+      <scope>provided</scope>
     </dependency>
 
       <dependency>
