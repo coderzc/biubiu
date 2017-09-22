@@ -9,7 +9,7 @@
 <head>
     <title>首页</title>
     <%@include file="inclued_page/base_js_css.jsp" %>
-    <link href="css/home.css" rel="stylesheet">
+    <link href="./css/home.css" rel="stylesheet">
 </head>
 <script>
 

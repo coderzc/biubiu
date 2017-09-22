@@ -16,8 +16,8 @@
     <script src="js/fileinput.min.js" type="text/javascript"></script>
     <script src="js/fileinput_locale_zh.js" type="text/javascript"></script>
     <script src="js/upload_video.js" type="text/javascript"></script>
-    <link href="css/app.css" rel="stylesheet">
-    <link href="css/fileinput.min.css" rel="stylesheet">
+    <link href="./css/app.css" rel="stylesheet">
+    <link href="./css/fileinput.min.css" rel="stylesheet">
     <style>
         .container {
             padding: 0 0;
