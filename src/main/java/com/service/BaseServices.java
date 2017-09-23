@@ -2,7 +2,6 @@ package com.service;
 
 
 import com.dao.*;
-import com.entity.Videos;
 import com.entity.modelBeans.PageModel;
 import com.utils.DaoFactory;
 import com.utils.HibernateUtils;
@@ -221,12 +220,10 @@ public class BaseServices<T> {
             List<T> list = (List<T>) query
                     .setFirstResult((pageNo - 1)*pageSize).setMaxResults(pageSize).list();
 
-            for(T l:list){
-                String videoId = ((Videos) l).getVideoId();
+//            for(T l:list){
+//                String videoId = ((Videos) l).getVideoId();
 //                System.out.println(videoId);
-            }
-
-
+//            }
 
             tx.commit();
 

@@ -23,6 +23,16 @@ public class Videos {
     private Set<VideoFavlist> video_favSet =new HashSet<>();//收藏该视频列表
     private Set<VideoLike> video_likeSet =new HashSet<>();//给该视频点赞列表
 
+    private Integer barrageNum;//弹幕总数
+
+    public Integer getBarrageNum() {
+        return barrageNum;
+    }
+
+    public void setBarrageNum(Integer barrageNum) {
+        this.barrageNum = barrageNum;
+    }
+
     public Set<Barrages> getVideo_barrageSet() {
         return video_barrageSet;
     }

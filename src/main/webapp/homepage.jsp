@@ -59,7 +59,8 @@
                                 ${douga_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                ${douga_.barrageNum}
+                            </span>
                         </div>
                     </div>
                 </li>
@@ -106,7 +107,7 @@
                                     ${fanju_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${fanju_.barrageNum}</span>
                         </div>
                     </div>
                 </li>
@@ -153,7 +154,7 @@
                                     ${music_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${music_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -197,7 +198,7 @@
                                     ${dance_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${dance_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -244,7 +245,7 @@
                                     ${game_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${game_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -289,7 +290,7 @@
                                     ${technology_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${technology_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -336,7 +337,7 @@
                                     ${life_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${life_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -383,7 +384,7 @@
                                     ${kichiku_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${kichiku_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -430,7 +431,7 @@
                                     ${fashion_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${fashion_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -477,7 +478,7 @@
                                     ${ad_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${ad_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -524,7 +525,7 @@
                                     ${ent_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${ent_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
@@ -571,7 +572,7 @@
                                     ${film_.videoWatchCount}</span>
                             <span class="video_danmu">
                                 <i class="b-icon b-icon-v-dm"></i>
-                                30</span>
+                                    ${film_.barrageNum}</span>
                             </div>
                         </div>
                     </li>
