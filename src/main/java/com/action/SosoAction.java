@@ -26,9 +26,6 @@ public class SosoAction extends ActionSupport implements ModelDriven<PageModel<V
         pageModel.setPageCount(15);
         String keyword = ServletActionContext.getRequest().getParameter("keyword");
 
-        System.out.println(keyword);
-
-
         pageModel = VIDEO_SERVICE.soso(pageModel, keyword);
 
 

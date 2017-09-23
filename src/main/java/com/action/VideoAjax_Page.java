@@ -49,7 +49,6 @@ public class VideoAjax_Page extends Page_AjaxAction<Videos> implements ServiceSu
     public String soso() {
 
         String keyword = request.getParameter("keyword");
-
         if (super.page_volatile_before()) {
             pageModel = VIDEO_SERVICE.soso(pageModel, keyword);
             if (super.page_volatile_after()) {

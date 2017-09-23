@@ -8,7 +8,7 @@ function page_ajax(page_No) {
     if (param != null&&param.length>0) {
 
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "ajax/pagevideo-classify",
             dataType: "json",
             data: {
