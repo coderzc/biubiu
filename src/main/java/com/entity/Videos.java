@@ -1,7 +1,5 @@
 package com.entity;
 
-import com.utils.PropertiesUtil;
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -74,7 +72,7 @@ public class Videos {
     }
 
     public String getVideoPath() {
-        return PropertiesUtil.getProperty("cos.server.http.prefix") + this.videoPath;
+        return videoPath;
     }
 
     public void setVideoPath(String videoPath) {
@@ -82,7 +80,7 @@ public class Videos {
     }
 
     public String getVideoCoverPath() {
-        return PropertiesUtil.getProperty("cos.server.http.prefix") + this.videoCoverPath;
+        return videoCoverPath;
     }
 
     public void setVideoCoverPath(String videoCoverPath) {

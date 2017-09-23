@@ -4,10 +4,12 @@ import com.entity.VideoLike;
 import com.entity.Videos;
 import com.entity.modelBeans.PageModel;
 import com.utils.HibernateUtils;
+import com.utils.PropertiesUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -75,6 +77,8 @@ public class VideoService extends BaseServices<Videos> {
 
             if (video != null) {
                 String up_user = video.getUp_user().getUserName();//通过访问属性加载用户对象
+                video.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoPath());
+                video.setVideoCoverPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoCoverPath());
                 Set<VideoLike> video_likeSet = video.getVideo_likeSet();
                 video_likeSet.size();
             }
@@ -94,17 +98,32 @@ public class VideoService extends BaseServices<Videos> {
 
     //根据页码获取视频分页模型
     public PageModel<Videos> videosPageModel(int pageNo, int pageSize) {
-        return super.findByPager(pageNo, pageSize);
+        PageModel<Videos> byPager = super.findByPager(pageNo, pageSize);
+        Iterator<Videos> iterator = byPager.getDatas().iterator();
+        while (iterator.hasNext()) {
+            Videos video = iterator.next();
+            video.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoPath());
+            video.setVideoCoverPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoCoverPath());
+        }
+        return byPager;
     }
-
 
 
     //根据类型,页码获取视频分页模型
     public PageModel<Videos> classify(PageModel<Videos> pageModel, String videoType) {
 
         String hql = "from Videos v where v.videoType=? order by v.videoWatchCount DESC,v.videoId ASC";
-        return super.findByPager
+        PageModel<Videos> byPager = super.findByPager
                 (pageModel.getPageNo(), pageModel.getPageSize(), hql, videoType);
+
+        Iterator<Videos> iterator = byPager.getDatas().iterator();
+        while (iterator.hasNext()) {
+            Videos video = iterator.next();
+            video.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoPath());
+            video.setVideoCoverPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoCoverPath());
+        }
+
+        return byPager;
 
     }
 
@@ -115,8 +134,17 @@ public class VideoService extends BaseServices<Videos> {
 
         String hql = "from Videos v where v.videoTitle like ? order by v.videoWatchCount DESC,v.videoId ASC";
 
-        return super.findByPager
-                (pageModel.getPageNo(), pageModel.getPageSize(), hql, "%"+keyword+"%");
+        PageModel<Videos> byPager = super.findByPager
+                (pageModel.getPageNo(), pageModel.getPageSize(), hql, "%" + keyword + "%");
+        Iterator<Videos> iterator = byPager.getDatas().iterator();
+        while (iterator.hasNext()) {
+            Videos video = iterator.next();
+            video.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoPath());
+            video.setVideoCoverPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoCoverPath());
+        }
+
+        return byPager;
+
 
     }
 

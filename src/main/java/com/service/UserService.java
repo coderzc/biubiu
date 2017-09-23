@@ -5,6 +5,7 @@ package com.service;
 
 import com.entity.Users;
 import com.utils.HibernateUtils;
+import com.utils.PropertiesUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -87,7 +88,11 @@ public class UserService extends BaseServices<Users> {
             List<Users> list = userDao.findList(hql, params);
             tx.commit();
             if (list != null && !list.isEmpty()) {
-                return list.get(0);
+
+                Users login_user = list.get(0);
+                login_user.setUserPassword("");
+                login_user.setUserPicPath(PropertiesUtil.getProperty("cos.server.http.prefix") + login_user.getUserPicPath());
+                return login_user;
             }
         } catch (Exception ce) {
             if (tx != null) {

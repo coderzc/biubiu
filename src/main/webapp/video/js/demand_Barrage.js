@@ -38,10 +38,10 @@ function check_video() {
     //     }
     // },180)
 
-    if (getQueryString("video_id") == "av62813213"||true) {
-        $("#demand_video").attr("src", "http://www.bilibilijj.com/Files/DownLoad/12322682.mp4/www.bilibilijj.com.mp4?mp3=true");
-        $("#demand_video")[0].load;
-    }
+    // if (getQueryString("video_id") == "av62813213"||true) {
+    //     $("#demand_video").attr("src", "http://www.bilibilijj.com/Files/DownLoad/12322682.mp4/www.bilibilijj.com.mp4?mp3=true");
+    //     $("#demand_video")[0].load;
+    // }
 
 }
 
