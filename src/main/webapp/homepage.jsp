@@ -44,7 +44,7 @@
                     <div class="view_radio">
                         <a href="${path}/video/demand?video_id=${douga_.videoId}" class="cover-preview" target="_blank" title="动画图片">
                             <div class="img_display">
-                                <img src="${path}${douga_.videoCoverPath}">
+                                <img src="${douga_.videoCoverPath}">
                             </div>
                         </a>
 
@@ -91,7 +91,7 @@
                     <div class="view_radio">
                         <a href="${path}/video/demand?video_id=${fanju_.videoId}" class="cover-preview" target="_blank" title="番剧图片">
                             <div class="img_display">
-                                <img src="${path}${fanju_.videoCoverPath}">
+                                <img src="${fanju_.videoCoverPath}">
                             </div>
                         </a>
 
@@ -138,7 +138,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${music_.videoId}" class="cover-preview" target="_blank" title="音乐图片">
                                 <div class="img_display">
-                                    <img src="${path}${music_.videoCoverPath}">
+                                    <img src="${music_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -182,7 +182,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${dance_.videoId}" class="cover-preview" target="_blank" title="舞蹈图片">
                                 <div class="img_display">
-                                    <img src="${path}${dance_.videoCoverPath}">
+                                    <img src="${dance_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -229,7 +229,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${game_.videoId}" class="cover-preview" target="_blank" title="游戏图片">
                                 <div class="img_display">
-                                    <img src="${path}${game_.videoCoverPath}">
+                                    <img src="${game_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -274,7 +274,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${technology_.videoId}" class="cover-preview" target="_blank" title="科技图片">
                                 <div class="img_display">
-                                    <img src="${path}${technology_.videoCoverPath}">
+                                    <img src="${technology_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -321,7 +321,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${life_.videoId}" class="cover-preview" target="_blank" title="生活图片">
                                 <div class="img_display">
-                                    <img src="${path}${life_.videoCoverPath}">
+                                    <img src="${life_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -368,7 +368,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${kichiku_.videoId}" class="cover-preview" target="_blank" title="鬼畜图片">
                                 <div class="img_display">
-                                    <img src="${path}${kichiku_.videoCoverPath}">
+                                    <img src="${kichiku_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -415,7 +415,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${fashion_.videoId}" class="cover-preview" target="_blank" title="时尚图片">
                                 <div class="img_display">
-                                    <img src="${path}${fashion_.videoCoverPath}">
+                                    <img src="${fashion_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -462,7 +462,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${ad_.videoId}" class="cover-preview" target="_blank" title="广告图片">
                                 <div class="img_display">
-                                    <img src="${path}${ad_.videoCoverPath}">
+                                    <img src="${ad_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -509,7 +509,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${ent_.videoId}" class="cover-preview" target="_blank" title="娱乐图片">
                                 <div class="img_display">
-                                    <img src="${path}${ent_.videoCoverPath}">
+                                    <img src="${ent_.videoCoverPath}">
                                 </div>
                             </a>
 
@@ -556,7 +556,7 @@
                         <div class="view_radio">
                             <a href="${path}/video/demand?video_id=${film_.videoId}" class="cover-preview" target="_blank" title="影视图片">
                                 <div class="img_display">
-                                    <img src="${path}${film_.videoCoverPath}">
+                                    <img src="${film_.videoCoverPath}">
                                 </div>
                             </a>
 

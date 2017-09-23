@@ -61,7 +61,7 @@ function update_video_ui(video_list, recordCount) {
         var item = $("<li class='vedio_matrix'></li>").append("<a href="+server_path+"/video/demand?video_id="+video_list[key].videoId+"><div class='video_cover'><img class='coverimg'/></div></a>");
 
         item.find(".coverimg").attr({
-            "src":server_path+video_list[key].videoCoverPath,
+            "src": video_list[key].videoCoverPath,
         });
 
         var video_info = $("<div class='info'></div>").append("<div class='headline'><span class='avid_type'><a class='title' href='#'>"+video_list[key].videoTitle+"</a></span></div>");
