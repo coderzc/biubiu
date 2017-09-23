@@ -77,8 +77,8 @@ public class VideoService extends BaseServices<Videos> {
 
             if (video != null) {
                 String up_user = video.getUp_user().getUserName();//通过访问属性加载用户对象
-//                video.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoPath());
-//                video.setVideoCoverPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoCoverPath());
+                video.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoPath());
+                video.setVideoCoverPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoCoverPath());
                 Set<VideoLike> video_likeSet = video.getVideo_likeSet();
                 video_likeSet.size();
             }

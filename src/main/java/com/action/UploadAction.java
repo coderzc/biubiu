@@ -1,6 +1,8 @@
 package com.action;
 
 import com.entity.Users;
+import com.service.UploadService;
+import com.utils.PropertiesUtil;
 import com.utils.VideoUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -162,73 +164,41 @@ public class UploadAction extends JsonActionSupport implements ServiceSupport {
     }
 
     public String head_pic() {
-
-        //服务器本地绝对根路径
-        String servesRealPath = ServletActionContext.getServletContext().getRealPath("/");
-
         String userId = ServletActionContext.getRequest().getParameter("userId");//要修改头像的用户id
+        String final_url = null;
 
-        System.out.println(userId);
-        System.out.println(file);
-        System.out.println(fileFileName);
-        System.out.println(fileContentType);
+        if (file != null && fileContentType.contains("image")) {
+            //定义临时文件夹
+            String tmp_path = request.getSession().getServletContext().getRealPath("tmp");
+            String targetFileName = null;
+            try {
+                targetFileName = UploadService.upload(file, fileFileName, tmp_path, PropertiesUtil.getProperty("avatar.prefix"));
+            } catch (Exception e) {
+                success = false;
+                e.printStackTrace();
+            }
+            final_url = PropertiesUtil.getProperty("cos.server.http.prefix") + targetFileName;
 
-        String fileExtend = fileFileName.substring(fileFileName.lastIndexOf("."));
-
-        String fileSign = fileFileName.substring(0, fileFileName.lastIndexOf("."));
-
-        String newFileName = fileSign + (System.currentTimeMillis());
-
-        String save_final_Path = null;
-
-        if (fileContentType.contains("image")) {
-
-            String realPath = servesRealPath + saveBasePath + imagePath;
-            File saveFile = new File(realPath, newFileName + fileExtend);
-
-            //拼接出服务器最终保存路径 /saveBasePath/typeDir/newFileName + fileExtend
-            save_final_Path = "/" + saveBasePath + imagePath + newFileName + fileExtend;
-
-            //文件存在直接跳过
-            if (!saveFile.exists()) {
-                if (!saveFile.getParentFile().exists()) {//父目录不存在自动创建
-                    saveFile.getParentFile().mkdirs();
-                }
-                try {
-                    FileUtils.copyFile(file, saveFile);//复制到服务器
-
-                    Users user_ = USER_SERVICE.get(userId);
-
-                    if (user_ != null) {
-                        String userPicPath = user_.getUserPicPath();
-                        File imgfile_lod = new File(servesRealPath + user_.getUserPicPath());
-
-                        //删除旧头像
-                        if (!"/res/head_pic/default.jpg".equals(user_.getUserPicPath()) && imgfile_lod.exists()) {
-                            imgfile_lod.delete();
-                        }
-
-                        user_.setUserPicPath(save_final_Path);
-
-                        if(USER_SERVICE.update(user_)){//保存修改；
-                            request.getSession().setAttribute("user", user_);
-                            success=true;
-                        }
-                        else {
-                            success=false;
-                        }
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+            Users user_ = USER_SERVICE.get(userId);
+            if (user_ != null) {
+                user_.setUserPicPath(targetFileName);
+                if (USER_SERVICE.update(user_)) {//保存修改；
+                    request.getSession().setAttribute("user", user_);
+                    success = true;
+                } else {
+                    success = false;
                 }
             } else {
-                success = true;
+                success = false;
             }
+
+        } else {
+            success = false;
         }
 
+
         if (success) {
-            resp_json.put("userPicPath", save_final_Path);
+            resp_json.put("userPicPath", final_url);
         }
 
         put_issuccess();

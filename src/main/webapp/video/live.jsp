@@ -1,11 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<%@ page import="com.web_socket.Mydanmusocket" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <%
     String host_path = request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
     String path = request.getContextPath();
     session.setAttribute("host_path", host_path);
     pageContext.setAttribute("path", path);
     session.setAttribute("port", request.getServerPort());
+
 
 %>
 <!DOCTYPE html>
