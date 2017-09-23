@@ -1,6 +1,8 @@
 package com.entity;
 
 
+import com.utils.PropertiesUtil;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -104,7 +106,8 @@ public class Users {
     }
 
     public String getUserPicPath() {
-        return userPicPath;
+
+        return PropertiesUtil.getProperty("cos.server.http.prefix") + this.userPicPath;
     }
 
     public void setUserPicPath(String userPicPath) {
