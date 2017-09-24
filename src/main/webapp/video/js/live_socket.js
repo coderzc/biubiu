@@ -6,7 +6,7 @@
 function websocket_functions() {
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
-        websocket = new WebSocket(ws_string + "/danmusocket");
+        websocket = new WebSocket(ws_string + "/websocket/danmusocket");
     } else {
         alert('Not support websocket');
     }
@@ -73,7 +73,7 @@ function update_onlinelist_ui(onlinelist) {//更新在人线数列表
 function websocket_rtc_functions() {
     //判断当前浏览器是否支持websocket
     if ('WebSocket' in window) {
-        websocket_rtc = new WebSocket(ws_string + "/myrtc");
+        websocket_rtc = new WebSocket(ws_string + "/websocket/myrtc");
     } else {
         alert('Not support websocket');
     }
