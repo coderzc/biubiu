@@ -16,7 +16,6 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="refresh" content="0;url=https://${path}/live.jsp">
     <title>***小美的直播间***</title>
 
     <%@include file="../inclued_page/base_js_css.jsp" %>
