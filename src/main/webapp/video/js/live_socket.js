@@ -4,9 +4,12 @@
 
 //websocket 方法组
 function websocket_functions() {
+    alert(1)
+
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
-        websocket = new WebSocket(ws_string + "/websocket/danmusocket");
+        websocket = new WebSocket("wss://" + document.getElementById("assfafadsfsdf").value);
+        alert("wss://" + document.getElementById("assfafadsfsdf").value)
     } else {
         alert('Not support websocket');
     }

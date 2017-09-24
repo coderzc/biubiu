@@ -33,7 +33,8 @@
 <body>
 
 <%@include file="../inclued_page/nav.jsp" %>
-
+<button onclick="websocket_functions()">修改</button>
+<input type="text" id="assfafadsfsdf">
 <div class="content">
     <div id="video_father" style=" background: url('img/bg_live.jpg') ">
         <div id="video_info">
