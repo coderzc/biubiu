@@ -6,7 +6,8 @@
 function websocket_functions() {
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
-        websocket = new WebSocket(document.getElementById("assfafadsfsdf").value);
+        websocket = new WebSocket(ws_string + "/danmusocket");
+
     } else {
         alert('Not support websocket');
     }
@@ -17,7 +18,7 @@ function websocket_functions() {
     }
     //连接成功建立的回调方法
     websocket.onopen = function (event) {
-        console.log("open");
+        console.log("open1");
         // video_play();//获取直播点并播放
        
     //接收到消息的回调方法
@@ -30,7 +31,6 @@ function websocket_functions() {
     websocket.onclose = function () {
         console.log("close");
         // alert("socket closed")
-
     }
 }
 

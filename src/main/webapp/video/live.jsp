@@ -3,6 +3,7 @@
     String host_path = request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
     String path = request.getContextPath();
     session.setAttribute("host_path", host_path);
+    session.setAttribute("host_name", request.getServerName());
     pageContext.setAttribute("path", path);
     session.setAttribute("port", request.getServerPort());
 
@@ -33,8 +34,6 @@
 <body>
 
 <%@include file="../inclued_page/nav.jsp" %>
-<button onclick="websocket_functions()">修改</button>
-<input type="text" id="assfafadsfsdf">
 <div class="content">
     <div id="video_father" style=" background: url('img/bg_live.jpg') ">
         <div id="video_info">
@@ -136,10 +135,10 @@
     var server_path = "${pageScope.path}";
     var ws_string;
     if (window.location.protocol == "https:") {
-        ws_string = "wss://" + "${sessionScope.host_path}";
+        ws_string = "wss://" + "${sessionScope.host_name}";
     }
     else {
-        ws_string = "ws://" + "${sessionScope.host_path}";
+        ws_string = "ws://" + "${sessionScope.host_name}";
     }
 
     var islived = ${applicationScope.get("islived")};//正在直播吗
