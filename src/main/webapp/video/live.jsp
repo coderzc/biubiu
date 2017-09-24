@@ -16,6 +16,7 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="refresh" content="0;url=https://${path}/live.jsp">
     <title>***小美的直播间***</title>
 
     <%@include file="../inclued_page/base_js_css.jsp" %>
@@ -52,12 +53,12 @@
                     </video>
 
 
-                    <video id='view_video'  autoplay hidden style="position: fixed;top: 0;left: 0;z-index: 1000"></video>
+                    <video id='view_video' autoplay hidden style="position: fixed;top: 0;left: 0;z-index: 1000"></video>
                     <%--隐藏的观众视频流--%>
                 </div>
                 <div class="d_show"></div>
             </div>
-            <div id="sendnav">
+            <div id="sendnav" style="width: 100%;left: 0;">
                 <button class="fontbutton_config btn" style="border-radius:0;" id="sendfont_speed" type="button"><i
                         class="glyphicon glyphicon-plane"
                         style="color: #f92231;font-size: 13px;top: 3px;left: -2px"></i>字体速度
@@ -87,8 +88,8 @@
             <div id="right_top">
                 <div>
                     <br>
-                        <span class="video_wacthtimes">围观人数：<span id="online"
-                                                                  style="font-size: x-large">300</span>人</span>
+                    <span class="video_wacthtimes">围观人数：<span id="online"
+                                                              style="font-size: x-large">300</span>人</span>
                 </div>
             </div>
             <div id="right_bottom">
@@ -129,16 +130,16 @@
 
 
 <script type="text/javascript">
-    var videopage_type="live";//区分直播还是点播
+    var videopage_type = "live";//区分直播还是点播
     var islogined = false;
     var websocket = null;
     var server_path = "${pageScope.path}";
     var ws_string;
     if (window.location.protocol == "https:") {
-        ws_string = "wss://"+"${sessionScope.host_path}";
+        ws_string = "wss://" + "${sessionScope.host_path}";
     }
     else {
-        ws_string = "ws://"+"${sessionScope.host_path}";
+        ws_string = "ws://" + "${sessionScope.host_path}";
     }
 
     var islived = ${applicationScope.get("islived")};//正在直播吗
@@ -157,8 +158,8 @@
     var session_id;
     var pc_opened_array = [];
 
-    var username_my="${sessionScope.user.userName}";//我的用户名
-    var userPicPath="${sessionScope.user.userPicPath}";//用户头像信息
+    var username_my = "${sessionScope.user.userName}";//我的用户名
+    var userPicPath = "${sessionScope.user.userPicPath}";//用户头像信息
     var userid_my = "${sessionScope.user.userId}";//获取我的userid
 
     if (userid_my != null && userid_my.length > 0) {

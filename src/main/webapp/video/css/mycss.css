@@ -47,12 +47,12 @@ a{
 
 #sendnav {
     position: relative;
-    /*top: -37px;*/
-    width: 100%;
+    top: -3px;
+    width: 80%;
     height: 40px;
-    /*z-index: 500;*/
-    /*float: left;*/
-    /*left: 109px;*/
+    /* z-index: 500; */
+    /* float: left; */
+    left: 173px;
     margin-top: 3px;
     float: left;
     border-top: 1px solid #cccccc;

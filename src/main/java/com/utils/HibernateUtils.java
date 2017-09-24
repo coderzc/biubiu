@@ -66,11 +66,11 @@ public class HibernateUtils {
             session.close();
         }
     }
-
-
-    public static void closeSession(Session session) {
-        if (session != null && session.isOpen()) {
-            session.close();
-        }
-    }
+//
+//
+//    public static void closeSession(Session session) {
+//        if (session != null && session.isOpen()) {
+//            session.close();
+//        }
+//    }
 }

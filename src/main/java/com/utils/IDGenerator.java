@@ -52,17 +52,10 @@ public class IDGenerator implements Configurable, IdentifierGenerator {
         String random_pk = null;
 
         Session session = HibernateUtils.getCurrentSession();//打开session
-
-
         do {
             random_pk = CreateId.OneId(leng);
 
         } while (session.get(classname, random_pk) != null);
-
-
-        HibernateUtils.closeSession(session);//关闭session
-
-
 
         return sign + random_pk;
 

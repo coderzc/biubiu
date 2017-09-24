@@ -4,6 +4,7 @@ import com.entity.Barrages;
 import com.entity.Videos;
 import com.opensymphony.xwork2.ActionSupport;
 import com.utils.Json_format;
+import com.utils.PropertiesUtil;
 import net.sf.json.JSONArray;
 import org.apache.struts2.ServletActionContext;
 
@@ -38,8 +39,6 @@ public class DemandAction extends ActionSupport implements ServiceSupport {
 
         String video_id = ServletActionContext.getRequest().getParameter("video_id");
 
-        System.out.println(video_id);
-
         //返回videos和Set<barrages>
        video_info = VIDEO_SERVICE.getVideo_info(video_id);
 
@@ -48,6 +47,9 @@ public class DemandAction extends ActionSupport implements ServiceSupport {
             if (VIDEO_SERVICE.addWatchCount(video_info)) {
                 System.out.println("视频观看次数增加成功!");
             }
+
+            video_info.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video_info.getVideoPath());
+            video_info.setVideoCoverPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video_info.getVideoCoverPath());
 
 
 //            System.out.println(video_info.getVideoPath());

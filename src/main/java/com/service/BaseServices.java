@@ -92,7 +92,7 @@ public class BaseServices<T> {
     }
 
 
-    public  T get(Serializable id) {
+    public T get(Serializable id) {
         T t = null;
         Transaction tx = null;
         try {
@@ -194,7 +194,7 @@ public class BaseServices<T> {
             tx = HibernateUtils.getCurrentSession().beginTransaction();
             String hql = "select t from " + clazz.getSimpleName() + " t";
             List<T> list = (List<T>) HibernateUtils.getCurrentSession().createQuery(hql)
-                    .setFirstResult((pageNo - 1)*pageSize).setMaxResults(pageSize).list();
+                    .setFirstResult((pageNo - 1) * pageSize).setMaxResults(pageSize).list();
             tx.commit();
             pm = new PageModel<T>(pageNo, pageSize, totalCount(), list);
         } catch (HibernateException e) {
@@ -218,7 +218,7 @@ public class BaseServices<T> {
             int totalCount = query.list().size();
 
             List<T> list = (List<T>) query
-                    .setFirstResult((pageNo - 1)*pageSize).setMaxResults(pageSize).list();
+                    .setFirstResult((pageNo - 1) * pageSize).setMaxResults(pageSize).list();
 
 //            for(T l:list){
 //                String videoId = ((Videos) l).getVideoId();
@@ -250,7 +250,7 @@ public class BaseServices<T> {
             int totalCount = query.list().size();
 
             List<T> list = (List<T>) query
-                    .setFirstResult((pageNo - 1)*pageSize).setMaxResults(pageSize).list();
+                    .setFirstResult((pageNo - 1) * pageSize).setMaxResults(pageSize).list();
             tx.commit();
             pm = new PageModel<T>(pageNo, pageSize, totalCount, list);
         } catch (HibernateException e) {

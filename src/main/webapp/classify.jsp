@@ -83,7 +83,7 @@
     </div>
 
     <div class="bottom" style="text-align: center">
-        <ul class="pagination pagination-lg" id="page_plugin" style="cursor: pointer">
+        <ul class="pagination" id="page_plugin" style="cursor: pointer">
             <%--<li><a id="prev_passage">&laquo;</a></li>--%>
             <%--<li class="normal active pageNo_li"><a id="passage1">1</a></li>--%>
             <%--<li><a id="next_passage">&raquo;</a></li>--%>

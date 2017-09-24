@@ -80,11 +80,7 @@ public class VideoService extends BaseServices<Videos> {
                 Set<VideoLike> video_likeSet = video.getVideo_likeSet();
                 video_likeSet.size();
             }
-
             tx.commit();
-
-            video.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoPath());
-            video.setVideoCoverPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video.getVideoCoverPath());
             return video;
 
         } catch (Exception ce) {

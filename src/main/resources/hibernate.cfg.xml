@@ -12,7 +12,7 @@
         <property name="hibernate.proxool.existing_pool">true</property>
 
         <!--方言-->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!--*如果使用的是本地事务（jdbc事务）-->
         <property name="hibernate.current_session_context_class">thread</property>
@@ -20,8 +20,7 @@
 
         <property name="show_sql">false</property>
         <property name="format_sql">true</property>
-        <!--<property name="hbm2ddl.auto">update</property>-->
-
+        <!--&lt;!&ndash;<property name="hbm2ddl.auto">update</property>&ndash;&gt;-->
 
         <mapping resource="hbm/Barrages.hbm.xml"/>
 

@@ -17,7 +17,8 @@
                 </button>
                 <span style="cursor: pointer" class="modal-title" id="mydelulablel">登录</span>
                 <span style="cursor: pointer;margin-left: 17px" class="modal-title" id="myzhucelablel">注册</span>
-                <div id="xian" style="position: absolute;top:39px;left: 2px;color: #337ab7">————</div>
+                <div id="xian" style="position: absolute;top:39px;left: 2px;color: #337ab7;font-family: unset">————
+                </div>
             </div>
             <div class="modal-body" id="login_div" style="display: none">
                 <form id="login_form" class="form-horizontal" role="form" onsubmit="return false">
