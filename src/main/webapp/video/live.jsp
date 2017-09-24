@@ -3,7 +3,7 @@
     String host_path = request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
     String path = request.getContextPath();
     session.setAttribute("host_path", host_path);
-    session.setAttribute("host_name", request.getServerName());
+    session.setAttribute("host_name", request.getServerName() + ":" + request.getServerPort());
     pageContext.setAttribute("path", path);
     session.setAttribute("port", request.getServerPort());
 
