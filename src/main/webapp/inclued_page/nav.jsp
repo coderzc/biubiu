@@ -72,13 +72,14 @@
                                         style="background-position: -471px -407px;"></i>个人中心</a>
                             </li>
                             <li>
-                                <a><i style="background-position: -536px -1046px;"></i> 投稿管理</a>
+                                <a href="upload_video.jsp"><i style="background-position: -536px -1046px;"></i> 投稿管理</a>
                             </li>
                             <li>
                                 <a><i style="background-position: -472px -472px;"></i> B币钱包</a>
                             </li>
                             <li>
-                                <a><i style="background-position: -473px -855px ;"></i> 直播中心</a>
+                                <a href="../video/live.jsp"><i style="background-position: -473px -855px ;"></i>
+                                    直播中心</a>
                             </li>
                         </ul>
                     </div>

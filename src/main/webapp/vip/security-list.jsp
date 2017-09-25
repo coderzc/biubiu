@@ -24,65 +24,65 @@
                         <span>我的头像</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#" id="nameplate">
-                        <i class="al-mp"></i>
-                        <span>成就勋章</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="site">
-                        <i class="al-aq"></i>
-                        <span>账号安全</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="coin">
-                        <i class="al-coin"></i>
-                        <span>我的硬币</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="record">
-                        <i class="al-jl"></i>
-                        <span>我的记录</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="identification">
-                        <i class="al-rz"></i>
-                        <span>实名认证</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" target="_blank" id="iden"
-                       rec-linkid="account_tab_gift_click" title="礼物兑换">
-                        <i class="al-dh"></i>
-                        <span>礼物兑换</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" target="_blank" id="identifica"
-                       rec-linkid="account_tab_invite_click" title="邀请注册">
-                        <i class="al-zc"></i>
-                        <span>邀请注册</span>
-                    </a>
-                </li>
+                <%--<li>--%>
+                <%--<a href="#" id="nameplate">--%>
+                <%--<i class="al-mp"></i>--%>
+                <%--<span>成就勋章</span>--%>
+                <%--</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#" id="site">--%>
+                <%--<i class="al-aq"></i>--%>
+                <%--<span>账号安全</span>--%>
+                <%--</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#" id="coin">--%>
+                <%--<i class="al-coin"></i>--%>
+                <%--<span>我的硬币</span>--%>
+                <%--</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#" id="record">--%>
+                <%--<i class="al-jl"></i>--%>
+                <%--<span>我的记录</span>--%>
+                <%--</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#" id="identification">--%>
+                <%--<i class="al-rz"></i>--%>
+                <%--<span>实名认证</span>--%>
+                <%--</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#" target="_blank" id="iden"--%>
+                <%--rec-linkid="account_tab_gift_click" title="礼物兑换">--%>
+                <%--<i class="al-dh"></i>--%>
+                <%--<span>礼物兑换</span>--%>
+                <%--</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#" target="_blank" id="identifica"--%>
+                <%--rec-linkid="account_tab_invite_click" title="邀请注册">--%>
+                <%--<i class="al-zc"></i>--%>
+                <%--<span>邀请注册</span>--%>
+                <%--</a>--%>
+                <%--</li>--%>
             </ul>
         </li>
-        <li class="f-list f-list-hover"><a href="#" target="_blank" class="first-level"
-                                           rec-linkid="account_tab_space_click" id="account_tab_space_click"
-                                           title="个人空间">个人空间<i class="m-arrow"></i></a></li>
-        <li class="f-list f-list-hover"><a href="#" target="_blank"
-                                           class="first-level" rec-linkid="account_tab_wallet_click"
-                                           id="account_tab_wallet_click" title="我的钱包">我的钱包<i
-                class="m-arrow"></i></a></li>
-        <li class="f-list f-list-hover"><a href="#" target="_blank"
-                                           class="first-level" rec-linkid="account_tab_video_click"
-                                           id="account_tab_video_click" title="投稿管理">投稿管理<i class="m-arrow"></i></a>
-        </li>
-        <li class="f-list f-list-hover"><a href="#" target="_blank" class="first-level"
-                                           rec-linkid="account_tab_live_click" id="account_tab_live_click"
-                                           title="直播中心">直播中心<i class="m-arrow"></i></a></li>
+        <%--<li class="f-list f-list-hover"><a href="#" target="_blank" class="first-level"--%>
+        <%--rec-linkid="account_tab_space_click" id="account_tab_space_click"--%>
+        <%--title="个人空间">个人空间<i class="m-arrow"></i></a></li>--%>
+        <%--<li class="f-list f-list-hover"><a href="#" target="_blank"--%>
+        <%--class="first-level" rec-linkid="account_tab_wallet_click"--%>
+        <%--id="account_tab_wallet_click" title="我的钱包">我的钱包<i--%>
+        <%--class="m-arrow"></i></a></li>--%>
+        <%--<li class="f-list f-list-hover"><a href="#" target="_blank"--%>
+        <%--class="first-level" rec-linkid="account_tab_video_click"--%>
+        <%--id="account_tab_video_click" title="投稿管理">投稿管理<i class="m-arrow"></i></a>--%>
+        <%--</li>--%>
+        <%--<li class="f-list f-list-hover"><a href="#" target="_blank" class="first-level"--%>
+        <%--rec-linkid="account_tab_live_click" id="account_tab_live_click"--%>
+        <%--title="直播中心">直播中心<i class="m-arrow"></i></a></li>--%>
     </ul>
 </div>

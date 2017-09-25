@@ -138,7 +138,7 @@
         ws_string = "wss://" + "${sessionScope.host_name}";
     }
     else {
-        ws_string = "ws://" + "${sessionScope.host_name}";
+        ws_string = "ws://biubiu.zcdev.xyz:8081";
     }
 
     var islived = ${applicationScope.get("islived")};//正在直播吗
