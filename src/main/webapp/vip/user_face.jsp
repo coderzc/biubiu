@@ -66,7 +66,7 @@
 
                 <span id="face-g-takedown" class="face-g-action disabled"><p class="line-1">卸下</p><p
                         class="line-2">挂件</p></span>
-                <img src="${path}${sessionScope.user.userPicPath}" id="face-g-avatar">
+                <img src="${sessionScope.user.userPicPath}" id="face-g-avatar">
                 <img id="face-g-g">
             </div>
 

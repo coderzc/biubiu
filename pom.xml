@@ -113,12 +113,12 @@
             <groupId>com.qcloud</groupId>
             <artifactId>cos_api</artifactId>
             <version>4.4</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>log4j</artifactId>
-                    <groupId>log4j</groupId>
-                </exclusion>
-            </exclusions>
+            <!--<exclusions>-->
+            <!--<exclusion>-->
+            <!--<artifactId>log4j</artifactId>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--</exclusion>-->
+            <!--</exclusions>-->
         </dependency>
 
     </dependencies>
