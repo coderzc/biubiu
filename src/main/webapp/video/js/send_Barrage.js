@@ -66,7 +66,7 @@ function demand_send_Barrage() {//点播发送弹幕
     var barrageColor = $("#sendcolor").val();
     var videoTimePrint = $("#demand_video")[0].currentTime;//发送的视频时间节点
     var videoId_ = videoId;
-    var userId = userid_my;
+    // var userId = userid_my;
 
     if(barrageContent!=null&&barrageContent.length>0){
         send_barrage(null, barrageContent, barrageSpeed, barrageColor, barrageFontSize);//上屏
@@ -82,8 +82,8 @@ function demand_send_Barrage() {//点播发送弹幕
                 barrageColor: barrageColor,
                 barrageFontSize: barrageFontSize,
                 videoTimePrint: videoTimePrint,
-                'barrage_video.videoId': videoId_,
-                'barr_user.userId': userId
+                'barrage_video.videoId': videoId_
+                // ,'barr_user.userId': userId
             },
             success: function (data) {
                 if (data.success) {
@@ -105,7 +105,8 @@ function demand_send_Barrage() {//点播发送弹幕
 
 function live_send_Barrage(state) {//直播发送弹幕
 //State 1 群发弹幕
-    //2 发给指定用户？？？
+//      2 用户下线
+//      0 用户手动登陆
     if (!islogined) {
         alert("请先登录！");
         return;
@@ -127,6 +128,7 @@ function live_send_Barrage(state) {//直播发送弹幕
     if(barrageContent!=null&&barrageContent.length>0){
 
         websocket.send(JSON.stringify({
+            "group":"danmu",
             "state": state,
             "barrage": {
                 "barrageContent": barrageContent,

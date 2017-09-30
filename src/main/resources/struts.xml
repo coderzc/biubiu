@@ -7,13 +7,12 @@
 <struts>
     <constant name="struts.action.extension" value=",html,jsp,action,tingting"></constant>
     <constant name="struts.action.excludePattern"
-              value="/danmusocket,/myrtc,/res/.*?,/js/.*?,/css/.*?,/video/css/.*?,/video/js/.*?,/Admin,/ServletConfigurator"/>
+              value="/websocket/.*,/js/.*?,/css/.*?,/video/css/.*?,/video/js/.*?,/Admin,/ServletConfigurator"/>
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
     <constant name="struts.serve.static.browserCache" value="false"></constant><!--缓存关闭-->
     <constant name="struts.multipart.maxSize" value="900000000"/><!--文件上传最大限制-->
 
     <package name="default" namespace="/" extends="struts-default,global">
-
         <!--默认action-->
         <default-action-ref name="*">
         </default-action-ref>
@@ -23,10 +22,6 @@
 
         <action name="homepage" class="com.action.HomeAction">
             <result name="success">/homepage.jsp</result>
-        </action>
-
-        <action name="soso1" class="com.action.SosoAction">
-            <result name="success">/soso1.jsp</result>
         </action>
 
     </package>
@@ -50,6 +45,11 @@
                 <param name="actionName">demand?video_id=av00000001</param>
             </result>
 
+        </action>
+
+        <action name="live" class="com.action.LiveAction">
+            <result name="success">/video/live.jsp</result>
+            <result name="my" type="redirect">/video/live.jsp?roomId=${myRoomId}</result>
         </action>
     </package>
 
@@ -83,8 +83,6 @@
 
         <action name="user_info" class="com.action.UserInfoAction" method="setting">
             <result>/vip/user_info.jsp</result>
-
-
         </action>
 
     </package>

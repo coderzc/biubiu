@@ -17,6 +17,7 @@ public class Users {
     private String userGender;
     private Date userBirthday;
     private String userPicPath;
+    private Integer roomId;
 
     private Set<Videos> uploadSet = new HashSet<>();//用户上传视频列表
     private Set<Barrages> user_barrageSet=new HashSet<>();//该用户所发的弹幕集合
@@ -113,6 +114,14 @@ public class Users {
         this.userPicPath = userPicPath;
     }
 
+    public Integer getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -127,8 +136,7 @@ public class Users {
         if (userGender != null ? !userGender.equals(users.userGender) : users.userGender != null) return false;
         if (userBirthday != null ? !userBirthday.equals(users.userBirthday) : users.userBirthday != null) return false;
         if (userPicPath != null ? !userPicPath.equals(users.userPicPath) : users.userPicPath != null) return false;
-
-        return true;
+        return roomId != null ? roomId.equals(users.roomId) : users.roomId == null;
     }
 
     @Override
@@ -140,6 +148,7 @@ public class Users {
         result = 31 * result + (userGender != null ? userGender.hashCode() : 0);
         result = 31 * result + (userBirthday != null ? userBirthday.hashCode() : 0);
         result = 31 * result + (userPicPath != null ? userPicPath.hashCode() : 0);
+        result = 31 * result + (roomId != null ? roomId.hashCode() : 0);
         return result;
     }
 }

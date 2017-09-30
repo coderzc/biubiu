@@ -18,14 +18,13 @@
     <%--<div id="top_contain"></div>--%>
 
     <div id="logo_input">
-        <div id="logo">
-        </div>
+        <div id="soso_logo">biubiu搜索</div>
         <div class="input-group input-group-lg" id="search" style="margin-left: 45px;">
 
             <input type="text" class="form-control" placeholder="输入关键字">
         </div>
         <div id="serarch_button">
-            <a id="search_soso" class="button button-glow button-rounded button-raised button-primary">搜索</a>
+            <a id="search_soso" class="button button-glow button-rounded button-raised button-primary">搜 索</a>
         </div>
     </div>
     <div id="nav_sub">

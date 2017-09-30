@@ -105,4 +105,31 @@ public class UserService extends BaseServices<Users> {
     }
 
 
+    public Users getUserbyRoomId(Integer roomId) {
+        Transaction tx = null;
+        try {
+            Session session = HibernateUtils.getCurrentSession();
+            tx = session.beginTransaction();
+            String hql =
+                    "from Users where roomId=?";
+            Object[] params = {roomId};
+            List<Users> list = userDao.findList(hql, params);
+            tx.commit();
+            if (list != null && !list.isEmpty()) {
+                Users liver = list.get(0);
+                liver.setUserPassword("");
+                liver.setUserPicPath(PropertiesUtil.getProperty("cos.server.http.prefix") + liver.getUserPicPath());
+                return liver;
+            }
+        } catch (Exception ce) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            ce.printStackTrace();
+        }
+
+        return null;
+    }
+
+
 }

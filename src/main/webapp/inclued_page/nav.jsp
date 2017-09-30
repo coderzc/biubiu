@@ -2,9 +2,8 @@
 <link href="<%=request.getContextPath()%>/css/nav.css" rel="stylesheet">
 
 <nav class="navbar" role="navigation" style="margin-bottom:10px">
-    <div id="head_content" style="width: 1248px;margin: 0 auto;height: 100%">
-        <!--<div id="head_logo" style="width: 100px;text-align: center;float: left;"><img-->
-        <!--src="img/icon.png" style="width:60%;height: 100%"></div>-->
+    <div id="head_content" style="width: 90%;margin: 0 auto;height: 100%">
+        <div class="logo" style="width: 100px;text-align: center;float: left;">biubiu</div>
 
         <div class="ul_buttons">
 
@@ -43,9 +42,15 @@
            </ul>
            </span>
 
-         <span class="item">
-                <a class="head_item head_iteam_live" href="/video/live.action">直 播</a>
-         </span>
+            <span class="item button-dropdown" data-buttons="dropdown">
+                                <a class="head_item head_iteam_live" href="#">直 播</a>
+                <ul class="button-dropdown-list is-below">
+                <li><a class="my_class" href="/video/live?roomId=00001"><i
+                        class="glyphicon glyphicon-chevron-right"></i>直播中心</a></li>
+                <li><a class="my_class" href="/video/live?roomId=0"><i class="glyphicon glyphicon-chevron-right"></i>我的直播</a></li>
+                </ul>
+
+            </span>
 
         </div>
         <div class="nav_right_list">
@@ -95,7 +100,7 @@
 
         </div>
         <div class="search_nav navbar-form" role="search">
-            <input type="text" class="form-control" style="width: 450px" placeholder="搜你想要的...">
+            <input type="text" class="form-control" style="width: 300px" placeholder="搜你想要的...">
             <span id="soso" class="glyphicon glyphicon-search soso"
                   onclick="soso($('.search_nav.navbar-form input').val())"></span>
         </div>
@@ -135,6 +140,7 @@
             soso($(this).val());
         }
     });
+
 
 </script>
 

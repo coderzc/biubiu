@@ -1,5 +1,6 @@
 body{
     overflow-x:hidden;
+    min-width: 1300px;
 }
 
 li {
@@ -21,13 +22,16 @@ nav {
 .search_nav {
     margin: 0;
     overflow: hidden;
-    height: 100%
+    height: 100%;
+    /*float:right;*/
+    /*margin-right: 240px;*/
+    padding: 0;
 }
 
 .ul_buttons {
     width: auto;
     float: left;
-    margin-right: 10px
+    /*margin-right: 10px*/
 }
 
 .item {
@@ -92,6 +96,8 @@ nav {
 
 .logined {
     float: right !important;
+    width: 210px;
+    height: 53px;
 }
 
 #open_btn {
@@ -210,7 +216,7 @@ nav {
     display: block;
     cursor: pointer;
     padding: 0 15px;
-    width: fit-content;
+    /*width: fit-content;*/
 }
 
 .favlist:hover, .video_submit:hover{
@@ -223,4 +229,11 @@ nav {
 
 .video_submit{
     left: 1240px;
+}
+
+.logo{
+    color: #4586ee;
+    font-size: 25px;
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
+    font-style: oblique;
 }

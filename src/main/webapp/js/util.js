@@ -7,7 +7,7 @@ function getObjectURL(file){
         url=window.createObjectURL(file)
     }else if(window.URL!=undefined){ // mozilla(firefox)
         url=window.URL.createObjectURL(file)
-    } else if(window.webkitURL!=undefined){ // webkit or chrome
+    } else if(window.webkitURL.createObjectURL!=undefined){ // webkit or chrome
         url=window.webkitURL.createObjectURL(file)
     }else {
         url=URL.createObjectURL(file)

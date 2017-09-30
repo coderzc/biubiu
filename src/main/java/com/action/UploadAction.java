@@ -183,6 +183,7 @@ public class UploadAction extends JsonActionSupport implements ServiceSupport {
             if (user_ != null) {
                 user_.setUserPicPath(targetFileName);
                 if (USER_SERVICE.update(user_)) {//保存修改；
+                    user_.setUserPicPath(final_url);
                     request.getSession().setAttribute("user", user_);
                     success = true;
                 } else {

@@ -17,11 +17,12 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>***小美的直播间***</title>
+    <title>***直播间***</title>
 
     <%@include file="../inclued_page/base_js_css.jsp" %>
     <script type="text/javascript" src="js/jquery.colorpicker.js"></script>
     <link href="css/mycss.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/webrtc-adapter/5.0.4/adapter.min.js"></script>
     <script type="text/javascript" src="js/live_socket.js"></script>
     <script type="text/javascript" src="js/web_RTC.js"></script>
     <script type="text/javascript" src="js/send_Barrage.js"></script>
@@ -38,9 +39,13 @@
     <div id="video_father" style=" background: url('img/bg_live.jpg') ">
         <div id="video_info">
             <div class="videoinfo">
-                    <span style="text-align: center;top: 8px;left:13px;color: #f9639e">
+                    <span style="text-align: center;top: 8px;left:13px;color: rgb(33, 156, 247)">
                     <i style="background: url(../img/icons.png) -535px -854px no-repeat;"></i>
-                    小美的直播间</span></div>
+                        <span style="color: tomato">${liveRoom.liverName}</span>的直播间&nbsp;<span
+                            style="font-weight: bold;
+                                    color: #ff1022;
+                                    margin-left: 30px;">房间号：${liveRoom.roomId}</span></span>
+            </div>
             <%--<div class="videoinfo"><span>已点赞<span id="video_like_">n</span>次</span></div>--%>
         </div>
         <div class="left_cope" style=" background: url('img/bg_live.jpg') 0px -35px; "></div>
@@ -48,7 +53,7 @@
             <div class="dm">
                 <div class="d_mask">
                     <video id="live_video" class="barrage_video" autoplay width="100%" height="99%" preload="auto"
-                           loop controls="controls" poster="img/zhibo.jpg">
+                           loop controls poster="img/zhibo.jpg">
                     </video>
 
 
@@ -87,8 +92,7 @@
             <div id="right_top">
                 <div>
                     <br>
-                    <span class="video_wacthtimes">围观人数：<span id="online"
-                                                              style="font-size: x-large">300</span>人</span>
+                    <span class="video_wacthtimes">围观人数：<span id="online" style="font-size: x-large">😜</span>人</span>
                 </div>
             </div>
             <div id="right_bottom">
@@ -138,10 +142,11 @@
         ws_string = "wss://" + "${sessionScope.host_name}";
     }
     else {
-        ws_string = "ws://biubiu.zcdev.xyz:8081";
+        ws_string = "ws://" + "${sessionScope.host_name}";
     }
 
-    var islived = ${applicationScope.get("islived")};//正在直播吗
+    var islived = ${liveRoom.is_lived};//正在直播吗
+
     var pc;//rtc连接对象
     //PeerConnection兼容版本
     var PeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
@@ -151,9 +156,11 @@
     var remoteVideoUrl;//远程视频源
     var localStream;//本地视频流
     var remoteStream;//远程视频流
-    var ishost = false;//主播
+
     var isprovider = false;//真正的视频主播页面
-    var websocket_rtc = null;
+    var isliver = ${is_liver};//主播(是你的直播房间吗)
+    var roomId = "${liveRoom.roomId}";
+    //var websocket_rtc = null;
     var session_id;
     var pc_opened_array = [];
 
@@ -166,11 +173,10 @@
     } else {
         islogined = false;
     }
+
     login_update();//更新用户登录区界面
 
-
-    websocket_functions();//弹幕socket启动
-    websocket_rtc_functions();//rtc_socket启动
+    websocket_functions();//socket启动
 
 
     $(document).ready(function () {
@@ -188,7 +194,6 @@
         //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
         window.onbeforeunload = function (event) {
             websocket.close();
-            websocket_rtc.close();
             for (var key in pc_opened_array) {
                 if (pc_opened_array[key] != null) {
                     pc_opened_array[key].close();

@@ -8,7 +8,7 @@
 
 <!--登录/注册模态框-->
 <div class="modal" id="myModal" role="dialog" tabindex="-1" data-remote="true" data-keydata-backdrop="true"
-     data-backdrop="true">
+     data-backdrop="true" style="font-family: 'Microsoft YaHei',Arial,Helvetica,sans-serif">
     <div class="modal-dialog ">
         <div class="modal-content" id="myModal_content">
             <div class="modal-header">
@@ -31,7 +31,7 @@
                     <br>
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="password" name="userPassword" class="form-control" placeholder="密码" required/>
+                        <input type="password" name="userPassword" class="form-control" placeholder="密码" required onkeydown="aaaaa(event)"/>
                         <!--<span id="hold2" class="holder" style="top:4px;left:240px">密码错误</span>-->
                     </div>
                     <br>
@@ -86,7 +86,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                         <input type="password" name="userPassword" class="form-control" id="password2"
-                               placeholder="确认密码" required/>
+                               placeholder="确认密码" required onkeydown="bbbbb(event)"/>
                         <span id="hold7" class="holder" style="top:4px;width:100px;left:220px">密码确认错误</span>
                     </div>
                     <br>
@@ -99,3 +99,15 @@
         </div>
     </div>
 </div>
+<script>
+    function aaaaa(event) {
+        if(event.keyCode==13){
+            login_submit();
+        }
+    }
+    function bbbbb(event) {
+        if(event.keyCode==13){
+            resign_submit();
+        }
+    }
+</script>

@@ -44,6 +44,7 @@ public class LoginAction extends JsonActionSupport implements ModelDriven<Users>
         resp_json.put("islogined", is_logined);
         resp_json.put("user_id", user_id);
         resp_json.put("userPicPath",user_return.getUserPicPath());
+        resp_json.put("roomId",user_return.getRoomId());
         put_issuccess();
 
         return SUCCESS;

@@ -11,17 +11,15 @@
     margin: 5px auto;
 }
 
-#logo {
+#soso_logo {
     position: relative;
     float: left;
-    width: 20%;
-    text-align: center;
-    width: 131px;
     height: 35px;
-    line-height: 35px;
-    background-image: url('../img/icon3(1).png');
-    background-position: -261px -61px;
+    line-height: 40px;
+    color: #fd6853;
+    font-size: 20px;
 }
+
 
 #search {
     position: relative;
@@ -37,9 +35,9 @@
     /*height: 50px;*/
     /*text-align: center;*/
     /*margin-left: 85px;*/
-
+    width: 200px;
     position: absolute;
-    left: 820px;
+    left: 600px;
 }
 
 #nav_sub {
@@ -90,6 +88,7 @@
 .so_info {
     position: relative;
     margin-top: 10px;
+    padding-left: 40px;
 }
 
 .so_info_total {

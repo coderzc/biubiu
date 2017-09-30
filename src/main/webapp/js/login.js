@@ -13,14 +13,17 @@ function login_submit() {
             data: $('#login_form').serializeArray(),// 提交表单
             success: function (data) {
                 if (data.success) {
-                    alert(data.username + "登陆成功！");
+                    // alert(data.username + "登陆成功！");
                     if ("undefined" != typeof websocket) {
-                        websocket.send(JSON.stringify({"user_online": true}));//切换为用户登录状态
+                        websocket.send(JSON.stringify({"group":"danmu","state": 0}));//切换为用户登录状态
                     }
 
                     userid_my = data.user_id;
                     username_my = data.username;
                     userPicPath = data.userPicPath;
+                    if("undefined"!=typeof roomId){
+                        data.roomId==roomId?isliver=true:isliver=false;
+                    }
                     islogined = true;
                     login_update();
                 }
@@ -57,16 +60,8 @@ function login_update() {
             if (videopage_type == "live") {//直播
 
                 // alert(username_my);
-                if (username_my == "小美") {
-                    ishost = true; //修正主播标识
-                    if (islived) {
-                        alert("主播你正在直播时,不能同时开启两个页面哦");
-                        //关闭页面
-                        window.opener = null;
-                        window.open('', '_self');
-                        window.close();
-                    }
-
+                if (isliver===true) {
+                    isliver = true; //修正主播标识
                     $("#open_btn").show();
                     // alert("你是主播");
                     $("#user_name_").append("<i class='glyphicon glyphicon-fire'>(*主播*)</i>")
@@ -76,7 +71,7 @@ function login_update() {
                         $("#open_btn").attr("disabled", "disabled");
                     }
                 } else {
-                    ishost = false; //修正主播标识
+                    isliver = false; //修正主播标识
                     $("#open_btn").hide();
                 }
             }

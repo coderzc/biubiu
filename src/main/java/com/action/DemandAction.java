@@ -45,7 +45,7 @@ public class DemandAction extends ActionSupport implements ServiceSupport {
         if (video_info != null) {
 
             if (VIDEO_SERVICE.addWatchCount(video_info)) {
-                System.out.println("视频观看次数增加成功!");
+//                System.out.println("视频观看次数增加成功!");
             }
 
             video_info.setVideoPath(PropertiesUtil.getProperty("cos.server.http.prefix") + video_info.getVideoPath());

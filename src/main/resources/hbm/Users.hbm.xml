@@ -27,7 +27,9 @@
         <property name="userPicPath">
             <column name="avatar" sql-type="varchar(100)" length="100"/>
         </property>
-
+        <property name="roomId">
+            <column name="room_id" sql-type="int"/>
+        </property>
         <!--视频上传列表-->
         <set name="uploadSet" table="video" inverse="true" order-by="videoUploadTime desc">
             <key column="user_id"></key> <!--cascade 级联保存更新-->

@@ -34,6 +34,11 @@ public class CreateId {
 //        System.out.println("num:"+num+"id:"+Id);
         return Id+num;
     }
+
+
+    public static String getNumZero(Integer integer){
+        return  String.format("%05d",integer);
+    }
 }
    
     

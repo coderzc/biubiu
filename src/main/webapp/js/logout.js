@@ -9,14 +9,16 @@ function logout_submit() {
 
         if ("undefined" != typeof websocket) {//直播用户下线
             websocket.send(JSON.stringify({
+                "group":"danmu",
                 "state": 2,//下线状态码
                 "logout_id": userid_my
             }));//切换为用户登录状态
 
             //主播下线
-            if ("undefined" != typeof websocket_rtc && isprovider) {//这里先写isprovider？？？？？？
-                websocket_rtc.send(JSON.stringify({
-                    "style": "host_close",
+            if ("undefined" != typeof websocket && isprovider) {//这里先写isprovider？？？？？？
+                websocket.send(JSON.stringify({
+                    "group":"rtc",
+                    "type": "live_close",
                     "data": {}
                 }));
                 $("#live_video")[0].src = "";
@@ -54,8 +56,8 @@ function logout_submit() {
                         userPicPath = "";
                         username_my = "";
 
-                        if ("undefined" != typeof ishost && "undefined" != typeof isprovider) {//这是必然的
-                            ishost = false;
+                        if ("undefined" != typeof isliver && "undefined" != typeof isprovider) {//这是必然的
+                            isliver = false;
                             isprovider = false;
                         }
                         login_update();

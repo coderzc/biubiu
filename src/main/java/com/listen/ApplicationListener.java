@@ -26,8 +26,8 @@ public class ApplicationListener implements ServletContextListener,
     // ServletContextListener implementation
     // -------------------------------------------------------
     public void contextInitialized(ServletContextEvent sce) {
-        sce.getServletContext().setAttribute("onlineCount", 0);
-        sce.getServletContext().setAttribute("islived", false);
+//        sce.getServletContext().setAttribute("onlineCount", 0);
+//        sce.getServletContext().setAttribute("islived", false);
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
