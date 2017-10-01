@@ -19,8 +19,10 @@ function websocket_functions() {
     //连接成功建立的回调方法
     websocket.onopen = function (event) {
         console.log("open");
-        if (islived&&!isliver) {//直播已经开始了
-            // getUserMedia();
+        if (!isliver) {//不是主播
+            requst_live_src()
+        }else {
+            console.log("你是主播")
             requst_live_src()
         }
 }
