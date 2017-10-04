@@ -9,25 +9,14 @@ function logout_submit() {
 
         if ("undefined" != typeof websocket) {//直播用户下线
             websocket.send(JSON.stringify({
-                "group":"danmu",
+                "group": "danmu",
                 "state": 2,//下线状态码
                 "logout_id": userid_my
             }));//切换为用户登录状态
 
             //主播下线
-            if ("undefined" != typeof websocket && isprovider) {//这里先写isprovider？？？？？？
-                websocket.send(JSON.stringify({
-                    "group":"rtc",
-                    "type": "live_close",
-                    "data": {}
-                }));
-                $("#live_video")[0].src = "";
-
-                for (var key in pc_opened_array) {
-                    if (pc_opened_array[key] != null) {
-                        pc_opened_array[key].close();
-                    }
-                }
+            if ("undefined" != typeof websocket && isliver()) {
+                close_live();
             }
 
         }
@@ -44,9 +33,9 @@ function logout_submit() {
                 if (data.success) {
 
                     var strs = window.location.pathname.split("/");
-                    var parent_path = strs[strs.length-2];
+                    var parent_path = strs[strs.length - 2];
 
-                    if (parent_path=="vip") {//如果在vip下则 重新加载
+                    if (parent_path == "vip") {//如果在vip下则 重新加载
                         window.location.reload(true);//刷新页面
                     }
                     else {
@@ -56,8 +45,7 @@ function logout_submit() {
                         userPicPath = "";
                         username_my = "";
 
-                        if ("undefined" != typeof isliver && "undefined" != typeof isprovider) {//这是必然的
-                            isliver = false;
+                        if ("undefined" != typeof isprovider) {
                             isprovider = false;
                         }
                         login_update();

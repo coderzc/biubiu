@@ -21,9 +21,9 @@ function login_submit() {
                     userid_my = data.user_id;
                     username_my = data.username;
                     userPicPath = data.userPicPath;
-                    if("undefined"!=typeof roomId){
-                        data.roomId==roomId?isliver=true:isliver=false;
-                    }
+                    // if("undefined"!=typeof roomId){
+                    //     data.roomId==roomId?isliver()=true:isliver=false;
+                    // }
                     islogined = true;
                     login_update();
                 }
@@ -60,18 +60,16 @@ function login_update() {
             if (videopage_type == "live") {//直播
 
                 // alert(username_my);
-                if (isliver===true) {
-                    isliver = true; //修正主播标识
+                if (isliver()) {
                     $("#open_btn").show();
                     // alert("你是主播");
                     $("#user_name_").append("<i class='glyphicon glyphicon-fire'>(*主播*)</i>")
                     if (islived) {
-                        $("#open_btn").css({"background-color": "#4285F4"});
-                        $("#open_btn").text("正在直播中");
-                        $("#open_btn").attr("disabled", "disabled");
+                        $("#open_btn").css({"background-color": "#ff9800","color":'antiquewhite'});
+                        $("#open_btn").text("关闭直播");
+                        // $("#open_btn").attr("disabled", "disabled");
                     }
                 } else {
-                    isliver = false; //修正主播标识
                     $("#open_btn").hide();
                 }
             }

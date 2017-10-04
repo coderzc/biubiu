@@ -17,6 +17,7 @@ public class LiveRoom {
     private static Map<Integer, LiveRoom> roomOpenMap = new ConcurrentHashMap<>();
 
     private String roomId;//直播间号
+    private String liverId;//主播id
     private String liverName;//主播名字
     private String liverAvatar;//主播头像
     private boolean is_lived = false;//正在直播？ 应该把它设计成线程安全的。
@@ -40,6 +41,14 @@ public class LiveRoom {
         this.roomId = roomId;
     }
 
+    public String getLiverId() {
+        return liverId;
+    }
+
+    public void setLiverId(String liverId) {
+        this.liverId = liverId;
+    }
+
     public String getLiverName() {
         return liverName;
     }
@@ -59,6 +68,7 @@ public class LiveRoom {
     public LiveRoom(Users liver) {
         this.roomId = CreateId.getNumZero(liver.getRoomId());
         this.liverName = liver.getUserName();
+        this.liverId = liver.getUserId();
         this.liverAvatar = PropertiesUtil.getProperty("cos.server.http.prefix") + liver.getUserPicPath();
     }
 

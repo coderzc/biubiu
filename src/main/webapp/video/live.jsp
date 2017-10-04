@@ -17,7 +17,7 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>***直播间***</title>
+    <title>***${liveRoom.liverName}的直播间***</title>
 
     <%@include file="../inclued_page/base_js_css.jsp" %>
     <script type="text/javascript" src="js/jquery.colorpicker.js"></script>
@@ -41,7 +41,7 @@
             <div class="videoinfo">
                     <span style="text-align: center;top: 8px;left:13px;color: rgb(33, 156, 247)">
                     <i style="background: url(../img/icons.png) -535px -854px no-repeat;"></i>
-                        <span style="color: tomato">${liveRoom.liverName}</span>的直播间&nbsp;<span
+                        房间主播:<span style="color: tomato;font-weight: bolder">${liveRoom.liverName}</span>&nbsp;<span
                             style="font-weight: bold;
                                     color: #ff1022;
                                     margin-left: 30px;">房间号：${liveRoom.roomId}</span></span>
@@ -158,8 +158,10 @@
     var remoteStream;//远程视频流
 
     var isprovider = false;//真正的视频主播页面
-    var isliver = ${is_liver};//主播(是你的直播房间吗)
+
     var roomId = "${liveRoom.roomId}";
+    var liverId = "${liveRoom.liverId}";//主播ID
+    var liverName = "${liveRoom.liverName}";//主播name
     //var websocket_rtc = null;
     var session_id;
     var pc_opened_array = [];
@@ -186,20 +188,18 @@
         });
 
         $("#open_btn").click(function () {//启动直播
-            isprovider = true;//标记为视频提供者
-            getUserMedia();
+            if (!islived) {
+                isprovider = true;//标记为视频提供者
+                getUserMedia();
+            } else {
+                close_live();
+            }
         });
 
 
         //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
         window.onbeforeunload = function (event) {
-            websocket.close();
-            for (var key in pc_opened_array) {
-                if (pc_opened_array[key] != null) {
-                    pc_opened_array[key].close();
-                }
-            }
-            return;
+            close_live();
         };
 
 

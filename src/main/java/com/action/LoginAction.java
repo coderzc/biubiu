@@ -26,6 +26,7 @@ public class LoginAction extends JsonActionSupport implements ModelDriven<Users>
         if (user_return != null) {//登录是否成功
             username = user_return.getUserName();//返回用户姓名
             if (true) {//重复登录检验
+
                 request.getSession().setAttribute("user", user_return);//将登陆信息加入session中
 
                 success = true;
