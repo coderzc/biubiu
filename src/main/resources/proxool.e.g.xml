@@ -2,7 +2,7 @@
 <something-else-entirely>
     <proxool>
         <alias>ProxoolPool</alias>
-        <driver-url>jdbc:mysql://127.0.0.1:3306/biubiu?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true
+        <driver-url>jdbc:mysql://127.0.0.1:3306/biubiu?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;allowMultiQueries=true
         </driver-url>
         <driver-class>com.mysql.jdbc.Driver</driver-class>
         <driver-properties>

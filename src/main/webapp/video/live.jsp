@@ -52,7 +52,7 @@
         <div class="center_content">
             <div class="dm">
                 <div class="d_mask">
-                    <video id="live_video" class="barrage_video" autoplay width="100%" height="99%" preload="auto"
+                    <video id="live_video" class="barrage_video" autoplay width="100%" height="100%" preload="auto"
                            loop controls poster="img/zhibo.jpg">
                     </video>
 
