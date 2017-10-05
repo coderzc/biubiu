@@ -47,7 +47,7 @@ a{
 
 #sendnav {
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
     margin-top: 3px;
     border-top: 1px solid #cccccc;
     position: relative;
@@ -193,8 +193,7 @@ a{
 /*}*/
 
 #right_content {
-    width: 20%;
-
+    width: 288px;
     float: left;
     background-color: white;
     position: relative;
@@ -266,7 +265,7 @@ a{
 .left_cope {
     float: left;
     z-index: 100;
-    width: 10%;
+    width: 0;
     background-color: white;
     height: 500px;
     position: relative
@@ -276,7 +275,6 @@ a{
 .right_cope {
     float: left;
     width: 0;
-    float: left;
     height: 500px;
     z-index: 100;
     position: relative;
@@ -286,7 +284,7 @@ a{
 #video_father {
     /*position: absolute;*/
     width: 100%;
-    height: 600px;
+    height: -webkit-fill-available;
     background-color: #f6f9fa;
 }
 

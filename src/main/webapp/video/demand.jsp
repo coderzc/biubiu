@@ -40,21 +40,45 @@
         <div class="center_content">
             <div class="dm" style="top: -1px;left: 0px">
                 <div class="d_mask">
-                    <video id="demand_video" class="barrage_video" controls width="100%" height="109%" preload="auto">
+                    <video id="demand_video" class="barrage_video" controls width="100%" height="100%" preload="auto">
                         <source id="mp4_src"
                                 src="${requestScope.video_info.videoPath}"/>
                     </video>
                 </div>
                 <div class="d_show"></div>
             </div>
-
+            <div id="sendnav">
+                <button class="fontbutton_config btn" style="border-radius:0;" id="sendfont_speed" type="button"><i
+                        class="glyphicon glyphicon-plane"
+                        style="color: #f92231;font-size: 13px;top: 3px;left: -2px"></i>字体速度
+                </button>
+                <button class="fontbutton_config btn" style="border-radius:0;" id="sendfont_size" type="button"><i
+                        class="glyphicon glyphicon-text-width"
+                        style="color: #4cb0f9;font-size: 13px;top: 3px;left: -2px"></i>字体大小
+                </button>
+                <button class="fontbutton_config btn" style="border-radius:0;" id="sendcolor" type="button"
+                        value="#ffffff">
+                    <img src="img/colorpicker.png" width="14" height="14">
+                    字体颜色
+                </button>
+                <input id="barr_text" type="text" class="form-control" maxlength="50" style="width: 60%"/>
+                <button class="fontbutton_config btn" style="border-radius:0;width: 10%" id="sendbtn" type="button">发送
+                </button>
+                <div id="send_cope">
+                    <div id="send_cope_content"><a href="#"
+                                                   onclick=" $('#myModal').modal('show');$('#xian').css({left:'2px'});login_model_show();">登录</a>
+                        或者<a href="#"
+                             onclick="$('#myModal').modal('show'); $('#xian').animate({left:'51px'});resign_model_show()">注册</a>后就能发弹幕啦(●'◡'●)~
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="right_content">
             <div id="right_top">
                 <div>
                     <br>
-                        <span class="video_wacthtimes">已播放<span id="play_num_"
-                                                                style="font-size: x-large">${video_info.videoWatchCount}</span>次</span>
+                    <span class="video_wacthtimes">已播放<span id="play_num_"
+                                                            style="font-size: x-large">${video_info.videoWatchCount}</span>次</span>
                     <span class="video_wacthtimes"><span id="barrage_number_"
                                                          style="font-size: larger">n</span>条弹幕</span>
                 </div>
@@ -84,31 +108,7 @@
             </div>
         </div>
         <div class="right_cope" style="background-color: #f6f9fa"></div>
-        <div id="sendnav">
-            <button class="fontbutton_config btn" style="border-radius:0;" id="sendfont_speed" type="button"><i
-                    class="glyphicon glyphicon-plane"
-                    style="color: #f92231;font-size: 13px;top: 3px;left: -2px"></i>字体速度
-            </button>
-            <button class="fontbutton_config btn" style="border-radius:0;" id="sendfont_size" type="button"><i
-                    class="glyphicon glyphicon-text-width"
-                    style="color: #4cb0f9;font-size: 13px;top: 3px;left: -2px"></i>字体大小
-            </button>
-            <button class="fontbutton_config btn" style="border-radius:0;" id="sendcolor" type="button"
-                    value="#ffffff">
-                <img src="img/colorpicker.png" width="14" height="14">
-                字体颜色
-            </button>
-            <input id="barr_text" type="text" class="form-control" maxlength="50" style="width: 60%"/>
-            <button class="fontbutton_config btn" style="border-radius:0;width: 10%" id="sendbtn" type="button">发送
-            </button>
-            <div id="send_cope">
-                <div id="send_cope_content"><a href="#"
-                                               onclick=" $('#myModal').modal('show');$('#xian').css({left:'2px'});login_model_show();">登录</a>
-                    或者<a href="#"
-                         onclick="$('#myModal').modal('show'); $('#xian').animate({left:'51px'});resign_model_show()">注册</a>后就能发弹幕啦(●'◡'●)~
-                </div>
-            </div>
-        </div>
+
         <div id="sendfontchoose_panle">
             <div id="speed_btns">
                 <button id="speed" class="speed_btn btn btn-sm btn-info" value="290">快</button>
@@ -148,14 +148,20 @@
     }
 
 
-        barrage_array2 = ${requestScope.barrage_jsonArray};//获取弹幕到全局变量(缓存)
-
+    barrage_array2 = ${requestScope.barrage_jsonArray};//获取弹幕到全局变量(缓存)
 
 
     load_barrages();//装载弹幕
 
     login_update(userid_my);//更新用户登录区界面
 
-
+    $(document).ready(function () {
+        $(".left_cope").width((($("#video_father").width() - 1174) / 2))
+        $(".right_cope").width((($("#video_father").width() - 1174) / 2))
+        window.onresize = function () {
+            $(".left_cope").width((($("#video_father").width() - 1174) / 2))
+            $(".right_cope").width((($("#video_father").width() - 1174) / 2))
+        }
+    })
 </script>
 </html>

@@ -216,7 +216,7 @@ nav {
     display: block;
     cursor: pointer;
     padding: 0 15px;
-    /*width: fit-content;*/
+    width: fit-content;
 }
 
 .favlist:hover, .video_submit:hover{

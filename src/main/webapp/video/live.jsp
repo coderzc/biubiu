@@ -36,7 +36,7 @@
 
 <%@include file="../inclued_page/nav.jsp" %>
 <div class="content">
-    <div id="video_father" style=" background: url('img/bg_live.jpg') ">
+    <div id="video_father" style="background: url('img/bg_live.jpg');background-repeat: no-repeat ">
         <div id="video_info">
             <div class="videoinfo">
                     <span style="text-align: center;top: 8px;left:13px;color: rgb(33, 156, 247)">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="d_show"></div>
             </div>
-            <div id="sendnav" style="width: 100%;left: 0;">
+            <div id="sendnav">
                 <button class="fontbutton_config btn" style="border-radius:0;" id="sendfont_speed" type="button"><i
                         class="glyphicon glyphicon-plane"
                         style="color: #f92231;font-size: 13px;top: 3px;left: -2px"></i>字体速度
@@ -183,6 +183,7 @@
 
     $(document).ready(function () {
 
+
         $("#sendbtn").click(function () {//弹幕发送按钮
             live_send_Barrage(1);
         });
@@ -202,6 +203,13 @@
             close_live();
         };
 
+
+        $(".left_cope").width((($("#video_father").width()-1174)/2))
+        $(".right_cope").width((($("#video_father").width()-1174)/2))
+        window.onresize = function () {
+            $(".left_cope").width((($("#video_father").width()-1174)/2))
+            $(".right_cope").width((($("#video_father").width()-1174)/2))
+        }
 
     });
 
