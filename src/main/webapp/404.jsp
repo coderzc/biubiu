@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>资源未找到-biubiu</title>
     <style>
         div.center {
             position: absolute;

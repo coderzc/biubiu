@@ -7,22 +7,9 @@
 %>
 <html>
 <head>
-    <title>大厅</title>
+    <title>直播广场-biubiu直播</title>
     <%@include file="inclued_page/base_js_css.jsp" %>
     <style>
-        #header_img_header {
-            opacity: 0.8;
-            width: 100%;
-            height: 180px;
-            /*border: 1px solid whitesmoke;*/
-            /*background-color: aqua;*/
-            text-align: center;
-            /*margin:-42px auto 0;*/
-            background-image: url('/img/da32eabbc8e4b0bb288b92857440023b8df07931.jpg');
-            /*background: transparent no-repeat center -10px;*/
-
-        }
-
         .so-wrap {
             width: 980px;
             margin: 0 auto;
@@ -148,7 +135,6 @@
 </head>
 <body>
 <%@include file="inclued_page/nav.jsp" %>
-<div id="header_img_header"></div>
 <div id="content">
     <div class="so-wrap">
         <div class="live-user">

@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="${path}/vip/user_face.html" id="face">
+                    <a href="${path}/vip/user_face" id="face">
                         <i class="al-tx"></i>
                         <span>我的头像</span>
                     </a>

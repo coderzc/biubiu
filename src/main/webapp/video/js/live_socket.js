@@ -74,7 +74,7 @@ function update_onlinelist_ui(onlinelist) {//更新在人线数列表
     $("#online_list").empty();//列表刷新
     for (var key in onlinelist) {
         if(onlinelist[key]==liverName){
-            var online_item = $("<tr style='text-align: center'><td class='td4'>" + onlinelist[key] + "<i class='glyphicon glyphicon-fire'>(*主播*)</i></td></tr>");
+            var online_item = $("<tr style='text-align: center'><td class='td4'>" + onlinelist[key] + "(*主播*)</td></tr>");
         }else {
             var online_item = $("<tr style='text-align: center'><td class='td4'>" + onlinelist[key] + "</td></tr>");
         }

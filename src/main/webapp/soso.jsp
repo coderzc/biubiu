@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>搜索</title>
+    <title>搜索-biubiu</title>
     <%@include file="inclued_page/base_js_css.jsp" %>
     <script src="js/page_.js" type="text/javascript"></script>
     <script src="js/soso.js" type="text/javascript"></script>

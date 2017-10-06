@@ -42,14 +42,8 @@
            </ul>
            </span>
 
-            <span class="item button-dropdown" data-buttons="dropdown">
-                                <a class="head_item head_iteam_live" href="#">直 播</a>
-                <ul class="button-dropdown-list is-below">
-                <li><a class="my_class" href="/live"><i
-                        class="glyphicon glyphicon-chevron-right"></i>广场</a></li>
-                <li><a class="my_class" href="/live?roomId=0"><i class="glyphicon glyphicon-chevron-right"></i>我的直播</a></li>
-                </ul>
-
+            <span class="item">
+            <a class="head_item head_iteam_live" href="/live">直 播</a>
             </span>
 
         </div>
@@ -77,13 +71,13 @@
                                         style="background-position: -471px -407px;"></i>个人中心</a>
                             </li>
                             <li>
-                                <a href="upload_video.jsp"><i style="background-position: -536px -1046px;"></i> 投稿管理</a>
+                                <a href="/vip/upload_video"><i style="background-position: -536px -1046px;"></i> 投稿管理</a>
                             </li>
                             <li>
-                                <a><i style="background-position: -472px -472px;"></i> B币钱包</a>
+                                <a href="/vip/user_face"><i style="background-position: -472px -344px;"></i> 我的头像</a>
                             </li>
                             <li>
-                                <a href="/live"><i style="background-position: -473px -855px ;"></i>广场</a>
+                                <a href="/live?roomId=0"><i style="background-position: -473px -855px ;"></i>我的直播</a>
                             </li>
                         </ul>
                     </div>

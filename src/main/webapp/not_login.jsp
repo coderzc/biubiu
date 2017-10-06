@@ -7,9 +7,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
-</head>i
-<body style="background: url('video/img/bg_live.jpg');background-repeat: no-repeat ">
+    <title>未登录</title>
+</head>
+<body>
 <%--请先登录！！！！！！！！--%>
 <script>
     alert("请先登录！");

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>个人中心</title>
+    <title>我的头像-biubiu</title>
     <%@include file="../inclued_page/base_js_css.jsp" %>
     <link id="css" rel="stylesheet" type="text/css" href="css/zclc2.css">
     <script type="text/javascript" src="js/userinfo_setting.js"></script>

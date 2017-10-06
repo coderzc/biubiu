@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>首页</title>
+    <title>首页-biubiu</title>
     <%@include file="inclued_page/base_js_css.jsp" %>
     <link href="./css/home.css" rel="stylesheet">
 </head>

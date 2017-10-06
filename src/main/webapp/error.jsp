@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>错误页面-biubiu</title>
 </head>
 <body>
 出错了！！！！！

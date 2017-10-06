@@ -17,7 +17,7 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>***${liveRoom.liverName}的直播间***</title>
+    <title>${liveRoom.liverName}的直播间 房间号${liveRoom.roomId}-biubiu直播</title>
 
     <%@include file="inclued_page/base_js_css.jsp" %>
     <script type="text/javascript" src="video/js/jquery.colorpicker.js"></script>

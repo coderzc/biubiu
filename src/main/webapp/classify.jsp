@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>分区</title>
+    <title>分区-biubiu</title>
     <%@include file="inclued_page/base_js_css.jsp" %>
     <script src="js/page_.js" type="text/javascript"></script>
     <script src="js/classify.js" type="text/javascript"></script>
@@ -121,6 +121,7 @@
 
 
             $("#classify_info h1").text(data['' + param + ''][0]);
+            document.title = data['' + param + ''][0]+'-biubiu视频分区';
 
             $(".body_head_img").css({"background-position": data['' + param + ''][1] + "px " + data['' + param + ''][2] + "px"});
 
