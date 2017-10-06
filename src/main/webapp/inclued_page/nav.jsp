@@ -83,7 +83,7 @@
                                 <a><i style="background-position: -472px -472px;"></i> B币钱包</a>
                             </li>
                             <li>
-                                <a href="../video/live.jsp"><i style="background-position: -473px -855px ;"></i>广场</a>
+                                <a href="/live"><i style="background-position: -473px -855px ;"></i>广场</a>
                             </li>
                         </ul>
                     </div>
