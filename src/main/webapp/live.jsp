@@ -19,28 +19,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>***${liveRoom.liverName}的直播间***</title>
 
-    <%@include file="../inclued_page/base_js_css.jsp" %>
-    <script type="text/javascript" src="js/jquery.colorpicker.js"></script>
-    <link href="css/mycss.css" rel="stylesheet">
+    <%@include file="inclued_page/base_js_css.jsp" %>
+    <script type="text/javascript" src="video/js/jquery.colorpicker.js"></script>
+    <link href="video/css/mycss.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/webrtc-adapter/5.0.4/adapter.min.js"></script>
-    <script type="text/javascript" src="js/live_socket.js"></script>
-    <script type="text/javascript" src="js/web_RTC.js"></script>
-    <script type="text/javascript" src="js/send_Barrage.js"></script>
-    <script type="text/javascript" src="js/ui.js"></script>
-    <script type="text/javascript" src="js/format_date.js"></script>
-    <script type="text/javascript" src="js/full_screen.js"></script>
+    <script type="text/javascript" src="video/js/live_socket.js"></script>
+    <script type="text/javascript" src="video/js/web_RTC.js"></script>
+    <script type="text/javascript" src="video/js/send_Barrage.js"></script>
+    <script type="text/javascript" src="video/js/ui.js"></script>
+    <script type="text/javascript" src="video/js/format_date.js"></script>
+    <script type="text/javascript" src="video/js/full_screen.js"></script>
 
 </head>
 
 <body>
 
-<%@include file="../inclued_page/nav.jsp" %>
+<%@include file="inclued_page/nav.jsp" %>
 <div class="content">
-    <div id="video_father" style="background: url('img/bg_live.jpg');background-repeat: no-repeat ">
+    <div id="video_father" style="background: url('video/img/bg_live.jpg');background-repeat: no-repeat ">
         <div id="video_info">
             <div class="videoinfo">
                     <span style="text-align: center;top: 8px;left:13px;color: rgb(33, 156, 247)">
-                    <i style="background: url(../img/icons.png) -535px -854px no-repeat;"></i>
+                    <i style="background: url(img/icons.png) -535px -854px no-repeat;"></i>
                         房间主播:<span style="color: tomato;font-weight: bolder">${liveRoom.liverName}</span>&nbsp;<span
                             style="font-weight: bold;
                                     color: #ff1022;
@@ -48,12 +48,12 @@
             </div>
             <%--<div class="videoinfo"><span>已点赞<span id="video_like_">n</span>次</span></div>--%>
         </div>
-        <div class="left_cope" style=" background: url('img/bg_live.jpg') 0px -35px; "></div>
+        <div class="left_cope" style=" background: url('video/img/bg_live.jpg') 0px -35px; "></div>
         <div class="center_content">
             <div class="dm">
                 <div class="d_mask">
                     <video id="live_video" class="barrage_video" autoplay width="100%" height="100%" preload="auto"
-                           loop controls poster="img/zhibo.jpg">
+                           loop controls poster="video/img/zhibo.jpg">
                     </video>
 
 
@@ -73,7 +73,7 @@
                 </button>
                 <button class="fontbutton_config btn" style="border-radius:0;" id="sendcolor" type="button"
                         value="#ffffff">
-                    <img src="img/colorpicker.png" width="14" height="14">
+                    <img src="video/img/colorpicker.png" width="14" height="14">
                     字体颜色
                 </button>
                 <input id="barr_text" type="text" class="form-control" maxlength="50"/>
@@ -110,7 +110,7 @@
                 </div>
             </div>
         </div>
-        <div class="right_cope" style=" background: url('img/bg_live.jpg') -1242px -35px;"></div>
+        <div class="right_cope" style=" background: url('video/img/bg_live.jpg') -1242px -35px;"></div>
         <div id="sendfontchoose_panle">
             <div id="speed_btns">
                 <button id="speed" class="speed_btn btn btn-sm btn-info" value="290">快</button>
@@ -127,7 +127,7 @@
     </div>
 </div>
 
-<%@include file="../inclued_page/model_login.jsp" %>
+<%@include file="inclued_page/model_login.jsp" %>
 
 </body>
 

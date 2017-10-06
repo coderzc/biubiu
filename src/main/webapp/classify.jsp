@@ -58,8 +58,6 @@
 
 
 <%@include file="inclued_page/nav.jsp" %>
-<div id="header_img_header">
-</div>
 <div id="content">
     <div id="classify_info">
         <span class="body_head_img" style="background-position: -80px -1615px">

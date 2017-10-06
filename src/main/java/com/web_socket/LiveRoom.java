@@ -6,8 +6,7 @@ import com.utils.CreateId;
 import com.utils.PropertiesUtil;
 
 import javax.websocket.Session;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -69,7 +68,7 @@ public class LiveRoom {
         this.roomId = CreateId.getNumZero(liver.getRoomId());
         this.liverName = liver.getUserName();
         this.liverId = liver.getUserId();
-        this.liverAvatar = PropertiesUtil.getProperty("cos.server.http.prefix") + liver.getUserPicPath();
+        this.liverAvatar = liver.getUserPicPath();
     }
 
 
@@ -130,7 +129,7 @@ public class LiveRoom {
     //关闭直播(房间)
     public synchronized void closeRoom() {
         this.is_lived = false;//关闭直播(标志)
-        roomOpenMap.remove(roomId);
+        roomOpenMap.remove(Integer.valueOf(roomId));
         System.out.println(roomId + "房间关闭");
     }
 
@@ -211,5 +210,13 @@ public class LiveRoom {
 
     public Map<String, Set<Session>> getSocketsToUserMap() {
         return SocketsToUserMap;
+    }
+
+
+    public static synchronized List getRoomsList() {
+        List<LiveRoom> rooms=new ArrayList<>();
+        Collection<LiveRoom> values = LiveRoom.roomOpenMap.values();
+        rooms.addAll(values);
+        return rooms;
     }
 }

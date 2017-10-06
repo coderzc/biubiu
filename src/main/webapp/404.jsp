@@ -20,12 +20,14 @@
     <img id="img_error" src="<%=request.getContextPath()%>/img/404.png" height="427" width="640"><br>
     <div class="errmsg">
         <b>前端服务器: </b>cn-tj-dx-w-02&nbsp;&nbsp; <b>处理服务器:</b>biubiu<br>
-        <b>请求地址:</b> <%=request.getRequestURL()%>&nbsp;&nbsp; <b>错误号:</b>404&nbsp;&nbsp;
+        <b>请求地址:</b> <span id="urlpath"></span>&nbsp;&nbsp; <b>错误号:</b>404&nbsp;&nbsp;
         <br><b>用户IP:</b><%=request.getRemoteHost()%><br>
 
     </div>
 </div>
-
+<script>
+    document.getElementById("urlpath").innerText=window.location;
+</script>
 
 </body>
 </html>

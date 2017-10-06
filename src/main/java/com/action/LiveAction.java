@@ -40,7 +40,7 @@ public class LiveAction extends ActionSupport implements ServiceSupport {
         user_my=((Users) ServletActionContext.getRequest().getSession().getAttribute("user"));
         String room_id0 = ServletActionContext.getRequest().getParameter("roomId");
         if (room_id0 == null || room_id0.length() <= 0) {//房间号错误
-            return "404";
+            return "hall";
         }
 
         if (user_my != null) {
@@ -59,8 +59,8 @@ public class LiveAction extends ActionSupport implements ServiceSupport {
             Users user_login = (Users) ServletActionContext.getRequest().getSession().getAttribute("user");
 
             liveRoom = LiveRoom.getRoom(room_id);
-            if (liveRoom == null) {//没有该房间
-                return "404";
+            if (liveRoom == null) {//没有该房间,进入大厅
+                return "hall";
             }
 
             is_liver = LiveRoom.isLiver(room_id, user_login);
@@ -68,7 +68,7 @@ public class LiveAction extends ActionSupport implements ServiceSupport {
             return SUCCESS;
 
         } catch (NumberFormatException e) {
-            return "404";
+            return "hall";
         }
     }
 

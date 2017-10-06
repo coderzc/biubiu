@@ -215,8 +215,8 @@ nav {
     position: absolute;
     display: block;
     cursor: pointer;
-    padding: 0 15px;
-    width: fit-content;
+    padding: 0 10px;
+    /*width: fit-content;*/
 }
 
 .favlist:hover, .video_submit:hover{

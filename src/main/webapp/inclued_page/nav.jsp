@@ -45,9 +45,9 @@
             <span class="item button-dropdown" data-buttons="dropdown">
                                 <a class="head_item head_iteam_live" href="#">直 播</a>
                 <ul class="button-dropdown-list is-below">
-                <li><a class="my_class" href="/video/live?roomId=00001"><i
-                        class="glyphicon glyphicon-chevron-right"></i>直播中心</a></li>
-                <li><a class="my_class" href="/video/live?roomId=0"><i class="glyphicon glyphicon-chevron-right"></i>我的直播</a></li>
+                <li><a class="my_class" href="/live"><i
+                        class="glyphicon glyphicon-chevron-right"></i>广场</a></li>
+                <li><a class="my_class" href="/live?roomId=0"><i class="glyphicon glyphicon-chevron-right"></i>我的直播</a></li>
                 </ul>
 
             </span>
@@ -83,8 +83,7 @@
                                 <a><i style="background-position: -472px -472px;"></i> B币钱包</a>
                             </li>
                             <li>
-                                <a href="../video/live.jsp"><i style="background-position: -473px -855px ;"></i>
-                                    直播中心</a>
+                                <a href="../video/live.jsp"><i style="background-position: -473px -855px ;"></i>广场</a>
                             </li>
                         </ul>
                     </div>

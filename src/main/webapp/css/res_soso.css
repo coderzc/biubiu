@@ -30,14 +30,10 @@
 }
 
 #serarch_button {
-    /*position: relative;*/
-    /*float: left;*/
-    /*height: 50px;*/
-    /*text-align: center;*/
-    /*margin-left: 85px;*/
     width: 200px;
     position: absolute;
-    left: 600px;
+    left: 754px;
+    top: 2px;
 }
 
 #nav_sub {

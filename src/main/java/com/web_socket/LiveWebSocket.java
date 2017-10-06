@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
@@ -43,13 +44,15 @@ public class LiveWebSocket {
     @OnClose
     public void OnClose(@PathParam(value = "roomId") Integer roomId, Session session) {
         Users user_login = (Users) httpSession.getAttribute("user");
-        liveRoom.outRoom(session, user_login);//离开房间
-        send_onlinlist();//发送在线人数
-        liveRoom.getSessions().remove(session); // 从连接池中删除
-        System.out.println("有一连接关闭！当前在线人数为" + liveRoom.getOnlineCount());
-        //主播离开房间自动触发关闭房间事件
-        if (liveRoom.getLiverSession() != null && session.getId().equals(liveRoom.getLiverSession().getId())) {
-            live_close();
+        if(liveRoom!=null){
+            liveRoom.outRoom(session, user_login);//离开房间
+            send_onlinlist();//发送在线人数
+            liveRoom.getSessions().remove(session); // 从连接池中删除
+            System.out.println("有一连接关闭！当前在线人数为" + liveRoom.getOnlineCount());
+            //主播离开房间自动触发关闭房间事件
+            if (liveRoom.getLiverSession() != null && session.getId().equals(liveRoom.getLiverSession().getId())) {
+                live_close();
+            }
         }
 
     }
@@ -152,7 +155,11 @@ public class LiveWebSocket {
     @OnError
     public void onError(@PathParam(value = "roomId") Integer roomId, Session session, Throwable error) {
         System.out.println("发生错误");
-        error.printStackTrace();
+        try {
+            session.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //给指定seesion发送消息

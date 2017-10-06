@@ -5,7 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <constant name="struts.action.extension" value=",html,jsp,action,tingting"></constant>
+    <constant name="struts.action.extension" value=",jsp"></constant>
     <constant name="struts.action.excludePattern"
               value="/websocket/.*,/js/.*?,/css/.*?,/video/css/.*?,/video/js/.*?,/Admin,/ServletConfigurator"/>
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
@@ -13,15 +13,27 @@
     <constant name="struts.multipart.maxSize" value="900000000"/><!--文件上传最大限制-->
 
     <package name="default" namespace="/" extends="struts-default,global">
+
         <!--默认action-->
-        <default-action-ref name="*">
-        </default-action-ref>
-        <action name="*">
-            <result>{1}.jsp</result>
-        </action>
+        <default-action-ref name="*"></default-action-ref>
 
         <action name="homepage" class="com.action.HomeAction">
             <result name="success">/homepage.jsp</result>
+        </action>
+
+        <action name="liveHall" class="com.action.LiveHallAction">
+            <result name="success">/live_hall.jsp</result>
+        </action>
+
+        <action name="live" class="com.action.LiveAction">
+            <result name="success">/live.jsp</result>
+            <result name="my" type="redirect">live?roomId=${myRoomId}</result>
+            <result name="hall" type="chain">liveHall</result>
+        </action>
+
+
+        <action name="*">
+            <result>{1}.jsp</result>
         </action>
 
     </package>
@@ -47,10 +59,6 @@
 
         </action>
 
-        <action name="live" class="com.action.LiveAction">
-            <result name="success">/video/live.jsp</result>
-            <result name="my" type="redirect">/video/live.jsp?roomId=${myRoomId}</result>
-        </action>
     </package>
 
 
@@ -58,28 +66,14 @@
 
         <!--判断登录拦截器-->
         <interceptors>
-
             <interceptor name="check_islogined" class="com.Interceptor.Check_islogined"></interceptor>
             <interceptor-stack name="check_islogin_stack">
-                <interceptor-ref name="check_islogined"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
                 <interceptor-ref name="check_islogined"></interceptor-ref>
             </interceptor-stack>
-
         </interceptors>
+
         <default-interceptor-ref name="check_islogin_stack"></default-interceptor-ref>
-
-        <!--<action name="uploadAction" class="com.action.FileUploadAction">-->
-        <!--<result name="success">/u.jsp</result>-->
-        <!--<result name="kong">/u.jsp</result>-->
-        <!--&lt;!&ndash;<result name="input">/error.jsp</result>&ndash;&gt;-->
-        <!--&lt;!&ndash; 配置拦截器限制上传文件类型及大小 &ndash;&gt;-->
-        <!--<interceptor-ref name="fileUpload">-->
-        <!--&lt;!&ndash;<param name="allowedTypes">image/bmp,image/x-png,image/gif,image/jpeg</param>&ndash;&gt;-->
-        <!--<param name="maximumSize">10000000</param>-->
-        <!--</interceptor-ref>-->
-        <!--<interceptor-ref name="defaultStack"></interceptor-ref>-->
-        <!--</action>-->
-
 
         <action name="user_info" class="com.action.UserInfoAction" method="setting">
             <result>/vip/user_info.jsp</result>
@@ -169,13 +163,10 @@
             <result name="error">
                 /error.jsp
             </result>
-            <!--<result name="input">-->
-            <!--/error.jsp-->
-            <!--</result>-->
-            <result name="login">
+            <result name="login" type="dispatcher">
                 /not_login.jsp
             </result>
-            <result name="404">
+            <result name="404" type="dispatcher">
                 /404.jsp
             </result>
         </global-results>
