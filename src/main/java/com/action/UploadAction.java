@@ -3,12 +3,9 @@ package com.action;
 import com.entity.Users;
 import com.service.UploadService;
 import com.utils.PropertiesUtil;
-import com.utils.VideoUtils;
-import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by admin on //.
@@ -91,71 +88,50 @@ public class UploadAction extends JsonActionSupport implements ServiceSupport {
 
 
     public String video() {
-        //服务器本地绝对根路径
-        String servesRealPath = ServletActionContext.getServletContext().getRealPath("/");
+        //定义临时文件夹
+        String tmp_path = request.getSession().getServletContext().getRealPath("tmp");
 
-        System.out.println(file);
-        System.out.println(fileFileName);
-        System.out.println(fileContentType);
+        String videoURL = null;
 
-        String fileExtend = fileFileName.substring(fileFileName.lastIndexOf("."));
+        String videoCoverURL = null;
 
-        String fileSign = fileFileName.substring(0, fileFileName.lastIndexOf("."));
+        String targetVideoURI = null;
 
-        String newFileName = fileSign + (System.currentTimeMillis());
+        String targetVideoCoverURI = null;
 
-        String save_final_videoPath = null;
+        boolean isVideoOK = false;
+        boolean isCoverOk = false;
+        if (file != null && fileContentType.contains("video")) {
 
-        String save_final_videoCoverPath = null;
-
-        String thumbnailName = null,
-                thumbnailFile_path = null;
-        boolean needThumb = false,
-                extractOk = false;
-        if (fileContentType.contains("video")) {
-
-            // 提取缩量图
-            needThumb = true;
-            thumbnailName = newFileName + ".jpg";
-            thumbnailFile_path
-                    = servesRealPath + saveBasePath + thumbnailPath + thumbnailName;
-
-            save_final_videoCoverPath = "/" + saveBasePath + thumbnailPath + thumbnailName;
-
-            File thumbnailFile = new File(thumbnailFile_path);
-            if (!thumbnailFile.getParentFile().exists()) {
-                thumbnailFile.getParentFile().mkdirs();
+            String thumbnailExtend = ".jpg";
+            //提取并上传封面
+            try {
+                targetVideoCoverURI = UploadService.extractAndUplaod(file, thumbnailExtend, tmp_path, PropertiesUtil.getProperty("video_cover.prefix"));
+                videoCoverURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoCoverURI;
+                isCoverOk = true;
+            } catch (Exception e) {
+                success = false;
+                e.printStackTrace();
             }
 
-            String realPath = servesRealPath + saveBasePath + videoPath;
-            File saveFile = new File(realPath, newFileName + fileExtend);
-
-            save_final_videoPath = "/" + saveBasePath + videoPath + newFileName + fileExtend;
-
-            // 存在同名文件，跳过
-            if (!saveFile.exists()) {
-                if (!saveFile.getParentFile().exists()) {
-                    saveFile.getParentFile().mkdirs();
-                }
-                try {
-                    FileUtils.copyFile(file, saveFile);
-                    if (needThumb) {
-                        extractOk = VideoUtils.extractThumbnail(saveFile, thumbnailFile_path);
-                        System.out.println("提取缩略图成功:" + extractOk);
-                    }
-                    success = true;
-
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
-            } else {
-                success = true;
+            //上传视频
+            try {
+                targetVideoURI = UploadService.upload(file, fileFileName, tmp_path, PropertiesUtil.getProperty("video.prefix"));
+                videoURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoURI;
+                isVideoOK = true;
+            } catch (Exception e) {
+                success = false;
+                e.printStackTrace();
             }
+
         }
 
-        if (success) {
-            resp_json.put("videoPath", save_final_videoPath);
-            resp_json.put("videoCoverPath", save_final_videoCoverPath);
+        if (isVideoOK && isCoverOk) {
+            success = true;
+            resp_json.put("videoURL", videoURL);
+            resp_json.put("videoCoverURL", videoCoverURL);
+            resp_json.put("videoURI", targetVideoURI);
+            resp_json.put("videoCoverURI", targetVideoCoverURI);
         }
 
         put_issuccess();

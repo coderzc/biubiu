@@ -103,11 +103,11 @@
                                     <div class="tab is-selected" data-header-base="">基本信息</div>
                                     <%--<div class="tab" data-header-high="">高级设置</div>--%>
                                 </div>
-                                <div class="template-wrp">
+                                <%--<div class="template-wrp">--%>
                                     <%--<div class="template-hint">使用投稿模板</div>--%>
                                     <div class="icon icon-setting manage-btn"></div>
                                     <div class="line"></div>
-                                </div>
+                                <%--</div>--%>
                             </div>
                         </div>
                         <div>
@@ -260,7 +260,8 @@
                 <%--<div class="hint">若你的稿件没有立刻显示在稿件列表中，请耐心等待5分钟</div>--%>
                 <div class="hint">下面是你是你的稿件访问地址:<br>
                     <span class="video_url_">www.agyufsdysfdyuk.dfghd</span></div>
-                <div class="pic"><img width="100%" src="../res/video_cover/default.png" ></div>
+                <div class="pic"><img width="100%"
+                                      src="https://biubiu-1251950860.cossh.myqcloud.com/video_cover/default.png"></div>
                 <a id="go_video" class="button" href="#">查看稿件</a>
                 <a id="again_video" class="button" href="#">再投一个</a>
             </div>

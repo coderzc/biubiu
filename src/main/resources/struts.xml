@@ -10,6 +10,7 @@
               value="/websocket/.*,/js/.*?,/css/.*?,/video/css/.*?,/video/js/.*?,/Admin,/ServletConfigurator"/>
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
     <constant name="struts.serve.static.browserCache" value="false"></constant><!--缓存关闭-->
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
     <constant name="struts.multipart.maxSize" value="900000000"/><!--文件上传最大限制-->
 
     <package name="default" namespace="/" extends="struts-default,global">

@@ -1,13 +1,12 @@
 package com.utils;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class VideoUtils {
-    public static final String FFMPEG_EXECUTOR = "d:/Programs/ffmpeg-20161221-54931fd-win64-static/bin/ffmpeg.exe";
+    public static final String FFMPEG_EXECUTOR = PropertiesUtil.getProperty("ffmpeg_executor");
     public static final int THUMBNAIL_WIDTH = 320;
     public static final int THUMBNAIL_HEIGHT = 200;
 

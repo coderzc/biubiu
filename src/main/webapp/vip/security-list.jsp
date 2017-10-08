@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="${path}/vip/user_info.html" id="setting" class="bg-blue">
+                    <a href="${path}/vip/user_info" id="setting" class="bg-blue">
                         <i class="al-info check-t"></i>
                         <span>我的信息</span>
                     </a>
