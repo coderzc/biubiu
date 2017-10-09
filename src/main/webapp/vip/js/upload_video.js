@@ -8,7 +8,7 @@ $(document).ready(function () {
     $("#upload_video").fileinput({
         language: 'zh', //设置语言
         uploadUrl: '../ajax/upload-video', // you must set a valid URL here else you will get an error
-        maxFileSize: 1000000,
+        maxFileSize: 2000000,
         maxFileCount: 1, //表示允许同时上传的最大文件个数
         dropZoneEnabled: true,//是否显示拖拽区域
         showUpload: true,
