@@ -142,51 +142,51 @@ public class HomeAction extends ActionSupport implements ServiceSupport {
 
 
         for (Videos video : douga) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : fanju) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : music) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : dance) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : game) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : technology) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : life) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : kichiku) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : fashion) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : ad) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : ent) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
         for (Videos video : film) {
-            int barrageNum = BARRAGE_SERVICE.queryByVideo(video.getVideoId()).size();
+            int barrageNum = BARRAGE_SERVICE.queryCountByVideo(video.getVideoId());
             video.setBarrageNum(barrageNum);
         }
 

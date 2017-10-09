@@ -93,6 +93,20 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
         return count;
     }
 
+    @Override
+    public int totalCount(String hql, Object... params) {
+        int count = 0;
+        Query query = HibernateUtils.getCurrentSession().createQuery(hql);
+        for (int i = 0; i < params.length; ++i) {
+            query.setParameter(i, params[i]);
+        }
+        Long temp = (Long) query.uniqueResult();
+        if (temp != null) {
+            count = temp.intValue();
+        }
+        return count;
+    }
+
 
     @Override
     public PageModel<T> findByPager(int pageNo, int pageSize) {

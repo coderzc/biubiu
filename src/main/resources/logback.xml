@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ logback 日志配置
+-->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoding>UTF-8</encoding>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <appender name="biubiu" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--<File>d:/biubiulog/biubiu.log</File>-->
+        <File>/Users/zc/developer/apache-tomcat-8.5.15/logs/biubiu.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/Users/zc/developer/apache-tomcat-8.5.15/logs/biubiu.log.%d{yyyy-MM-dd}.gz
+            </fileNamePattern>
+            <append>true</append>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--<File>d:/biubiulog/error.log</File>-->
+        <File>/Users/zc/developer/apache-tomcat-8.5.15/logs/error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/Users/zc/developer/apache-tomcat-8.5.15/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <!--<fileNamePattern>d:/biubiulog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
+            <append>true</append>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <logger name="com.biubiu" additivity="false" level="INFO">
+        <appender-ref ref="biubiu"/>
+        <appender-ref ref="console"/>
+    </logger>
+
+    <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="com.opensymphony" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
+
+    <!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder"
+            level="TRACE"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicExtractor"
+            level="DEBUG"/>
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.engine.QueryParameters" level="DEBUG"/>
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG"/>
+
+    <root level="DEBUG">
+        <appender-ref ref="console"/>
+        <appender-ref ref="error"/>
+    </root>
+
+</configuration>

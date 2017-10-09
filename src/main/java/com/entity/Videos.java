@@ -19,7 +19,7 @@ public class Videos {
 
     private Users up_user;//视频所有者
 
-    private Set<Barrages> video_barrageSet=new HashSet<>();//视频弹幕集合
+    //    private Set<Barrages> video_barrageSet=new HashSet<>();//视频弹幕集合
     private Set<VideoFavlist> video_favSet =new HashSet<>();//收藏该视频列表
     private Set<VideoLike> video_likeSet =new HashSet<>();//给该视频点赞列表
 
@@ -33,13 +33,13 @@ public class Videos {
         this.barrageNum = barrageNum;
     }
 
-    public Set<Barrages> getVideo_barrageSet() {
-        return video_barrageSet;
-    }
+//    public Set<Barrages> getVideo_barrageSet() {
+//        return video_barrageSet;
+//    }
 
-    public void setVideo_barrageSet(Set<Barrages> video_barrageSet) {
-        this.video_barrageSet = video_barrageSet;
-    }
+//    public void setVideo_barrageSet(Set<Barrages> video_barrageSet) {
+//        this.video_barrageSet = video_barrageSet;
+//    }
 
     public Set<VideoLike> getVideo_likeSet() {
         return video_likeSet;

@@ -90,6 +90,7 @@ public interface BaseDao<T> {
 	public int totalCount();
 
 
+	int totalCount(String hql, Object... params);
 
 	/**
 	 * 获取分页列表

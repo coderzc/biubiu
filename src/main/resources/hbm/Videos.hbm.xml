@@ -53,10 +53,10 @@
         </set>
 
         <!--该视频的弹幕集合-->
-        <set name="video_barrageSet" table="barrage" inverse="true" cascade="save-update">
-            <key column="video_id"></key>
-            <one-to-many class="com.entity.Barrages"></one-to-many>
-        </set>
+        <!--<set name="video_barrageSet" table="barrage" inverse="true" cascade="save-update">-->
+        <!--<key column="video_id"></key>-->
+        <!--<one-to-many class="com.entity.Barrages"></one-to-many>-->
+        <!--</set>-->
 
     </class>
 </hibernate-mapping>

@@ -1,11 +1,16 @@
 package com.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class VideoUtils {
+    private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
+
     public static final String FFMPEG_EXECUTOR = PropertiesUtil.getProperty("ffmpeg_executor");
     public static final int THUMBNAIL_WIDTH = 320;
     public static final int THUMBNAIL_HEIGHT = 200;
@@ -15,7 +20,7 @@ public class VideoUtils {
         List<String> command = new ArrayList<String>();
         File ffmpegExe = new File(FFMPEG_EXECUTOR);
         if (!ffmpegExe.exists()) {
-            System.out.println("转码工具不存在");
+            logger.info("转码工具不存在");
             return false;
         }
 
@@ -42,7 +47,7 @@ public class VideoUtils {
             long startTime = System.currentTimeMillis();
             Process process = builder.start();
             process.waitFor();
-            System.out.println("启动耗时" + (System.currentTimeMillis() - startTime));
+            logger.info("FFMPEG启动耗时" + (System.currentTimeMillis() - startTime));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
