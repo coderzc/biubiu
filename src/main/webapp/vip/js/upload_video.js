@@ -72,6 +72,8 @@ $(document).ready(function () {
 
             },100)
 
+        } else {
+            alert("上传失败");
         }
 
     });

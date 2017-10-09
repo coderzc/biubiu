@@ -5,13 +5,15 @@ import com.qcloud.cos.ClientConfig;
 import com.qcloud.cos.request.UploadFileRequest;
 import com.qcloud.cos.sign.Credentials;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
  * Created by zc on 2017/6/16.
  */
 public class COSUtil {
-//    private static final Logger logger = LoggerFactory.getLogger(COSUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(COSUtil.class);
 
     private COSClient cosClient;
     private long appId = Long.parseLong(PropertiesUtil.getProperty("appId"));
@@ -39,7 +41,7 @@ public class COSUtil {
         String uploadFileRet = cosUtil.cosClient.uploadFile(uploadFileRequest);
         JSONObject map = new JSONObject(uploadFileRet);
         if ((int) map.get("code") != 0) {
-            System.out.println("上传失败码：" + (int) map.get("code") + "原因：" + map.get("message"));
+            logger.info("上传失败码：" + (int) map.get("code") + "原因：" + map.get("message"));
             return false;
         }
         return true;

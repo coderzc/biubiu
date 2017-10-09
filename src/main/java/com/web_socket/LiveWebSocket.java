@@ -1,8 +1,11 @@
 package com.web_socket;
 
 import com.entity.Users;
+import com.utils.PropertiesUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpSession;
 import javax.websocket.*;
@@ -20,6 +23,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 @ServerEndpoint(value = "/websocket/live/{roomId}", configurator = GetHttpSessionConfigurator.class)
 public class LiveWebSocket {
+    private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
+    
     private LiveRoom liveRoom;
     private Session session;
     private HttpSession httpSession;
@@ -31,12 +36,12 @@ public class LiveWebSocket {
         this.session = session;
         liveRoom = LiveRoom.getRoom(roomId);//获取直播间对象
         if (liveRoom.isIs_lived()) {
-            System.out.println("！！！主播已开启直播");
+            logger.info("！！！主播已开启直播");
             liveRoom.inRoom(session, user_login);
             send_onlinlist();//发送在线人数
-            System.out.println("有新连接加入！当前在线人数为" + liveRoom.getOnlineCount());
+            logger.info("有新连接加入！当前在线人数为" + liveRoom.getOnlineCount());
         } else {
-            System.out.println("主播未开启直播！！！");
+            logger.info("主播未开启直播！！！");
         }
 
     }
@@ -48,7 +53,7 @@ public class LiveWebSocket {
             liveRoom.outRoom(session, user_login);//离开房间
             send_onlinlist();//发送在线人数
             liveRoom.getSessions().remove(session); // 从连接池中删除
-            System.out.println("有一连接关闭！当前在线人数为" + liveRoom.getOnlineCount());
+            logger.info("有一连接关闭！当前在线人数为" + liveRoom.getOnlineCount());
             //主播离开房间自动触发关闭房间事件
             if (liveRoom.getLiverSession() != null && session.getId().equals(liveRoom.getLiverSession().getId())) {
                 live_close();
@@ -59,7 +64,7 @@ public class LiveWebSocket {
 
     @OnMessage
     public void onMessage(@PathParam(value = "roomId") Integer roomId, String message, Session session) {
-        System.out.println("来自客户端的消息:" + message);
+        logger.info("来自客户端的消息:" + message);
         String to_session_id = (String) JSONObject.fromObject(message).get("session_id");
         Session to_session =null ;
         if(to_session_id!=null){
@@ -93,12 +98,12 @@ public class LiveWebSocket {
                 case "ice_candidate":
                     if (liveRoom.getLiverSession() != null) {//加强判断没有也可
                         if (liveRoom.getLiverSession().getId().equals((session.getId()))) {//主播发送的
-                            System.out.println(to_session_id);
+                            logger.info(to_session_id);
                             if (to_session != null) {
                                 sendMessage_To(message, to_session);
                             }
                         } else {//发给主播的
-//                        System.out.println(session.getId() + "-------" + liverSession.getId());
+//                        logger.info(session.getId() + "-------" + liverSession.getId());
                             String msg = get_addsessionid_json(message);//加上观众session_id
                             sendMessage_To(msg, liveRoom.getLiverSession());
                         }
@@ -108,7 +113,7 @@ public class LiveWebSocket {
                     live_close();
                     break;
                 default:
-                    System.out.println("state UNKONW");
+                    logger.info("state UNKONW");
                     break;
             }
         }else {
@@ -123,7 +128,7 @@ public class LiveWebSocket {
                         socketusergroup.add(session);
                         liveRoom.getSocketsToUserMap().put(user.getUserId(), socketusergroup); // 加入set中
                         liveRoom.getId_map_name().put(user.getUserId(), user.getUserName());//加入id_name 映射
-                        System.out.println("标签数:" + socketusergroup.size());
+                        logger.info("标签数:" + socketusergroup.size());
                         send_onlinlist();//发送在线人数
                         break;
                     case 1://群发弹幕
@@ -144,7 +149,7 @@ public class LiveWebSocket {
                         }
                         break;
                     default:
-                        System.out.println("state UNKONW");
+                        logger.info("state UNKONW");
                         break;
                 }
             }
@@ -154,7 +159,7 @@ public class LiveWebSocket {
 
     @OnError
     public void onError(@PathParam(value = "roomId") Integer roomId, Session session, Throwable error) {
-        System.out.println("发生错误");
+        logger.info("发生错误");
         try {
             session.close();
         } catch (IOException e) {
@@ -231,7 +236,7 @@ public class LiveWebSocket {
         name_list.addAll(liveRoom.getId_map_name().values());
 
         send_onlinlist.put("onlinelist", JSONArray.fromObject(name_list));
-        System.out.println("onlinlist:" + send_onlinlist);
+        logger.info("onlinlist:" + send_onlinlist);
         qunfa(send_onlinlist.toString(),true);
     }
 }
