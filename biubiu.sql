@@ -115,8 +115,6 @@ INSERT INTO `user` VALUES ('13061282760', '新花儿', '123', '13061282760@qq.co
 INSERT INTO `user` VALUES ('13061282764', '小帅', '123', '13061282764@qq.com', '保密', '2017-01-08', 'avatar/default.jpg', 00002);
 INSERT INTO `user` VALUES ('13061282767', '小美', '123', '13061282767@qq.com', '保密', '2017-01-08', 'avatar/touxinag1483850711434.jpg', 00003);
 INSERT INTO `user` VALUES ('13061282769', '小赵', '123', '13061282769@qq.com', '保密', '2017-01-08', 'avatar/default.jpg', 00004);
-INSERT INTO `user` VALUES ('13260355543', 'a123', '123', '123@qq.com', '保密', '1990-01-01', 'avatar/default.jpg', 00005);
-INSERT INTO `user` VALUES ('15128061822', 'admin', '123456', '1770102258@qq.com', '保密', '1990-01-01', 'avatar/default.jpg', 00006);
 COMMIT;
 
 -- ----------------------------
