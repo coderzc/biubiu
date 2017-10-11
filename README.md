@@ -21,7 +21,7 @@
 
 直播兼容性(已经测试)：
 
-电脑端：chrome53+ safari11+ 
+电脑端：chrome53+ 、safari11+ 
 
 Android端：微信、chrome、qq浏览器(连接不通)
 
