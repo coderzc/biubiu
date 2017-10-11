@@ -14,5 +14,14 @@
 
 3.通过WebSocket实现的实时弹幕系统
 
-4.基于WebRTc的直播系统、多房间制、多主播同时在线
+4.基于WebRTC的直播系统、多房间制、多主播同时在线
 
+
+
+直播兼容性(已经测试)：
+
+电脑端：chrome53+ safari11+ 
+
+Android端：微信、chrome、qq浏览器(连接不通)
+
+还有很奇怪的是Android端chrome与电脑safari不通，但是电脑端chrome与（safari/Android端chrome）都能连通
