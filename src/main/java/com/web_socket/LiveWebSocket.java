@@ -159,9 +159,21 @@ public class LiveWebSocket {
 
     @OnError
     public void onError(@PathParam(value = "roomId") Integer roomId, Session session, Throwable error) {
-        logger.info("发生错误");
+        logger.info("发生错误"+error.getMessage());
         try {
-            session.close();
+       session.close();
+            
+        Users user_login = (Users) httpSession.getAttribute("user");
+        if(liveRoom!=null){
+            liveRoom.outRoom(session, user_login);//离开房间
+            send_onlinlist();//发送在线人数
+            liveRoom.getSessions().remove(session); // 从连接池中删除
+            logger.info("有一连接关闭！当前在线人数为" + liveRoom.getOnlineCount());
+            //主播离开房间自动触发关闭房间事件
+            if (liveRoom.getLiverSession() != null && session.getId().equals(liveRoom.getLiverSession().getId())) {
+                live_close();
+            }
+        }
         } catch (IOException e) {
             e.printStackTrace();
         }
