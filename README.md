@@ -25,6 +25,6 @@
 
 Android端：微信、chrome、qq浏览器(连接不通)
 
-ios:ios11+
+iOS：iOS11+
 
 还有很奇怪的是Android端chrome与电脑safari不通，但是电脑端chrome与（safari/Android端chrome）都能连通
