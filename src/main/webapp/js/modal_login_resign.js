@@ -111,7 +111,7 @@ $(document).ready(function () {
 
     $("#phone_resig").blur(function () {
         var str_id = this.value;
-        var par = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        var par = /^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
         if (!par.test(str_id)) {
             $(this).next("span").text("手机格式错误").show();
         } else {//手机号重复性检验
