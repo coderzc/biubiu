@@ -3,7 +3,7 @@
     String path = request.getContextPath();
     pageContext.setAttribute("path", path);
 
-    String full_path=request.getScheme()+"://" +request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+    String full_path=request.getScheme()+"://" +request.getServerName()+request.getContextPath();
 
     pageContext.setAttribute("full_path", full_path);
 %>
