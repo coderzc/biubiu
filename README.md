@@ -4,7 +4,7 @@
 测试账户：
 用户名：小美  &nbsp;&nbsp;&nbsp; 密码：123
 
-项目演示地址：[https://biubiu.zcdev.xyz](https://biubiu.zcdev.xyz)  已关闭
+项目演示地址（已关闭）：[https://biubiu.zcdev.xyz](https://biubiu.zcdev.xyz)  
 
 项目功能介绍：
 
