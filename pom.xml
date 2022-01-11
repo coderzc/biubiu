@@ -13,7 +13,7 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.apache.tomcat>8.5.15</org.apache.tomcat>
-        <org.hibernate>4.3.8.Final</org.hibernate>
+        <org.hibernate>5.4.24.Final</org.hibernate>
     </properties>
     <dependencies>
         <dependency>
